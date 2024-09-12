@@ -1,0 +1,14 @@
+[book]
+authors = ["lsvp"]
+language = "es"
+multilingual = false
+src = "src"
+title = "mdbook-base"
+
+# opciones para mdbook-admonish
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
+
+[output.html]
+additional-css = ["./mdbook-admonish.css"]
