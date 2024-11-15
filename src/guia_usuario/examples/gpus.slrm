@@ -1,0 +1,76 @@
+#!/bin/bash
+#
+### Partición gpus ###
+#SBATCH --partition=gpus
+
+#
+### Nombre del trabajo ###
+#SBATCH --job-name=programa_GPU
+
+#
+### La salida estándar “STDOUT” de la tarea será redirigida al ###
+### archivo programa_GPU.o%j. %j se remplazará por el ###
+### identificador asignado al trabajo. ###
+#SBATCH --output=programa_GPU.o%j
+
+#
+### El error estándar “STDERR” de la tarea será redirigida al ###
+### archivo programa_GPU.e%j. %j se remplazará por el ###
+### identificador asignado al trabajo. ###
+#SBATCH --error=programa_GPU.e%j
+
+#
+### El trabajo requiere de 1 nodo, dependiendo de la aplicación ###
+### es la cantidad de tareas a ejecutar. En este caso asumiremos ###
+### que 2 tareas cada una de ellas trabajando en una tarjeta GPU ###
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+
+#
+### El cluster yoltla cuenta con nodos GPU:
+### 16 con 2 tarjetas. ###
+### 4 con 4 tarjetas. ###
+### 2 con 8 tarjetas. ###
+### y nodos VGPU:
+### 2 con 2 tarjetas. ###
+### 1 con 4 tarjetas. ###
+### Para solicitar los recursos cómputo, que en este caso son ###
+### las tarjetas GPU o VGPU, debemos indicar a slurm la cantidad de ###
+### tarjetas que requerimos para ejecutar nuestro programa. ###
+### --gres=gpu:2
+### --gres=gpu:4
+### --gres=gpu:8
+###
+### Con base en esta información se nos asignará el nodo con el ###
+### número de tarjetas solicitas. En este ejemplo solicitaremos ###
+### un nodo con 2 tarjetas.
+#SBATCH --gres=gpu:2
+
+#
+### Se solicitan 2 días para este trabajo ###
+#SBATCH --time=2-0
+
+#
+### A continuación todos los comandos necesarios para ejecutar la ###
+### tarea ###
+
+# Cargamos el modulo correspondiente al programa que ejecutaremos.
+module load <modulefiles/app>
+
+# Indicamos al shell bash que a partir de esta línea, imprima en error
+# estándar “STDERR” cada comando antes de ser ejecutado.
+# Útil para fines de diagnostico.
+set -x
+
+# SLURM comienza la ejecución del trabajo en el mismo directorio donde
+# se invoco el comando sbatch. El siguiente comando es opcional
+cd $SLURM_SUBMIT_DIR
+
+# Consultamos los cores que podemos utilizar así como el limite para
+# el segmento de memoria de pila o “stack size”
+grep Cpus_allowed_list: /proc/self/status
+grep "Max stack size" /proc/self/limits
+ulimit -s
+echo $CUDA_VISIBLE_DEVICES
+
+programa-GPU input

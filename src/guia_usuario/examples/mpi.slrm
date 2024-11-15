@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+### Partición tt2d-64p ###
+#SBATCH --partition=tt2d-64p
+
+#
+### Nombre del trabajo ###
+#SBATCH --job-name=programa_MPI
+
+#
+### La salida estándar “STDOUT” de la tarea será redirigida al ###
+### archivo programa_MPI.o%j. %j será remplazado por el ###
+### identificador asignado al trabajo. ###
+#SBATCH --output=programa_MPI.o%j
+
+# ### El error estándar “STDERR” de la tarea será redirigida al ###
+### archivo programa_MPI.e%j. %j será remplazado por el ###
+### identificador asignado al trabajo. ###
+#SBATCH --error=programa_MPI.e%j
+
+#
+### El trabajo requiere de 2 nodos, cada uno ejecutará 32 tareas. ###
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=32
+
+#
+### Se solicitan 2 días para este trabajo ###
+#SBATCH --time=2-0
+#
+### A continuación todos los comandos necesarios para ejecutar la ###
+### tarea ###
+
+# Cargamos el modulo correspondiente al programa que ejecutaremos.
+module load <modulefiles/app>
+
+# Indicamos al shell bash que a partir de esta línea, imprima en error
+# estándar “STDERR” cada comando antes de ser ejecutado.
+# Útil para fines de diagnostico.
+set -x
+
+# SLURM comienza la ejecución del trabajo en el mismo directorio donde
+# se invoco el comando sbatch. El siguiente comando es opcional
+cd $SLURM_SUBMIT_DIR
+
+# Obtenemos la lista de nodos asignados en el archivo nodes.list
+scontrol show hostname $SLURM_NODELIST > nodes.list
+
+# Ejecutamos el programa nwchem por medio de mpiexec.hydra:
+# 64 tareas (-np $SLURM_NTASKS)
+# 32 tareas por nodo (-ppn $SLURM_NTASKS_PER_NODE)
+
+MPI_COM=”mpiexec.hydra -bootstrap rsh -f ./hostlist.dat ”
+$MPI_COM -ppn $SLURM_NTASKS_PER_NODE -np $SLURM_NTASKS nwchem input.nw

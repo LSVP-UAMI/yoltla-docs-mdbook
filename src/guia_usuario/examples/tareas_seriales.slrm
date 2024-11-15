@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+### Partición q1h-20p ###
+#SBATCH --partition=q1h-20p
+
+#
+### Nombre del trabajo ###
+#SBATCH --job-name=programax20
+
+#
+### El trabajo requiere de 1 nodo, donde se ejecutarán 20 tareas ###
+### Por default por cada nodo solicitado SLURM asume que se ###
+### ejecutará una tarea. ###
+### LA DIRECTIVA #SBATCH --nodes=1 NO RESERVA NODOS COMPLETOS ###
+### ES NECESARIO INDICAR EXPLÍCITAMENTE LA CANTIDAD DE TAREAS ###
+### QUE SE EJECUTARÁN EN LOS NODOS SOLICITADOS ###
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=20
+
+#
+### Se solicitan 30 minutos para este trabajo ###
+#SBATCH --time=30:00
+
+#
+### A continuación todos los comandos necesarios para ejecutar las ###
+### 20 tareas ### 
+
+# Cargamos el modulo correspondiente al programa que ejecutaremos
+module load <modulefiles/app>
+
+# Indicamos al shell bash que a partir de esta línea, imprima en error
+# estándar “STDERR” cada comando antes de ser ejecutado.
+# Útil para fines de diagnostico
+set -x
+
+# SLURM comienza la ejecución del trabajo en el mismo directorio donde
+# se invoco el comando sbatch. El siguiente comando es opcional
+cd $SLURM_SUBMIT_DIR
+
+# Ejecutamos cada una de las 20 tareas (en segundo plano)
+# en este caso con archivos de entrada diferentes
+programa input1 &
+programa input2 &
+…
+…
+programa input20 &
+
+
+# De antemano no sabemos el orden en que terminarán cada una de
+# las 20 tareas que fueron lanzadas en segundo plano.
+# Nos auxiliaremos del comando interno de bash “wait” para detener
+# la ejecución del script (trabajo) hasta que todos los procesos
+# lanzados en segundo plano hayan finalizado.
+#
+# Sin esta instrucción el script terminara y SLURM dará por
+# finalizado el trabajo y terminando por medio de señales “kill”
+# cualquier tarea asociada al trabajo, en este caso los procesos
+# lanzados en segundo plano.
+wait

@@ -1,0 +1,31 @@
+.Nodos de cómputo en el cluster Yoltla
+[cols="^.^1,^.^1,^.^1", options="header, autowidth"]
+|===
+|Tipo de nodo
+|Número de CPUs
+|Memoria RAM
+
+|Cómputo CPU - nc
+|20
+|64 GB
+
+|Cómputo GPU - nc
+|20
+|64 GB
+
+|#Cómputo VGPU - nc#
+|36
+|128 GB
+
+|#Cómputo VGPU - nc#
+|36
+|256 GB
+
+|Cómputo CPU - tt
+|20
+|128 GB
+
+|Cómputo CPU - tt
+|32 
+|256 GB
+|===

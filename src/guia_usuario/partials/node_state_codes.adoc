@@ -1,0 +1,29 @@
+[cols="12%,88%", options="header"]
+|===
+|Estado
+|Descripción
+
+|*
+|El nodo no responde. No se le asignarán nuevos trabajos. 
+
+|allocated
+|El nodo tiene asignado uno o más trabajos. 
+
+|completing
+|Todos los trabajos asociados con este nodo están en proceso de finalización.
+
+|down
+|El nodo no está disponible para su uso. SLURM puede colocar automáticamente los nodos en este estado si ocurre alguna falla. 
+
+|drained
+|El nodo no está disponible para su uso por solicitud del administrador del sistema.
+
+|draining
+|El nodo está ejecutando un trabajo actualmente, pero no se le asignarán nuevos trabajos. El estado del nodo cambiará a _drained_ cuando se complete el último trabajo. 
+
+|idle
+|El nodo no tiene ningún trabajo asignado y está disponible para su uso. 
+
+|mixed
+|El nodo tiene algunos recursos disponibles para su uso y otros asignados a uno o más trabajos.
+|===

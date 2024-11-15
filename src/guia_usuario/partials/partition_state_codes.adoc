@@ -1,0 +1,17 @@
+[cols="10%,90%", options="header"]
+|===
+|Estado
+|Descripción
+
+|up
+|La partición está disponible para su uso. Se pueden enviar y ejecutar trabajos.
+
+|down
+|La partición no está disponible para su uso. Se pueden enviar trabajos, pero no se ejecutarán ni se les asignarán recursos. Los trabajos que ya se están ejecutando continúan ejecutándose.
+
+|drain
+|La partición no está disponible para su uso. No se pueden enviar trabajos, pero los trabajos que ya están en cola podrán solicitar recursos y ejecutarse.
+
+|inact
+|La partición se encuentra inactiva. No se pueden enviar trabajos. Los trabajos que ya están en la cola no se les asignarán recursos ni se ejecutarán.
+|===

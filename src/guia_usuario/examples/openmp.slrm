@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+### Partición q1h-20p ###
+#SBATCH --partition=q1h-20p
+
+#
+### Nombre del trabajo ###
+#SBATCH --job-name=programa_OMP
+
+#
+### La salida estándar “STDOUT” de la tarea será redirigida al ###
+### archivo programa_OMP.o%j. %j será remplazado por el ###
+### identificador asignado al trabajo. ###
+#SBATCH --output=programa_OMP.o%j
+
+#
+### El error estándar “STDERR” de la tarea será redirigida al ###
+### archivo programa_OMP.e%j. %j será remplazado por el ###
+### identificador asignado al trabajo. ###
+#SBATCH --error=programa_OMP.e%j
+
+#
+### Indicamos a SLURM que esta tarea ocupara 20 cores. ###
+### NO ESTABLECER ESTA OPCIÓN TENDRÁ COMO RESULTADO QUE LOS HILOS ##
+### CREADOS POR EL PROGRAMA SEAN RESTRINGIDOS A UN SOLO CORE EN ##
+### EN EL NODO DE CÓMPUTO, AFECTANDO CON ESTO DRÁSTICAMENTE EL ###
+### RENDIMIENTO ###
+#SBATCH --cpus-per-task=20
+
+#
+### Se solicitan 30 minutos para este trabajo ###
+#SBATCH --time=30:00
+#
+### A continuación todos los comandos necesarios para ejecutar la ###
+### tarea ###
+
+# Cargamos el modulo correspondiente al programa que ejecutaremos. 
+module load <modulefiles/app>
+
+# Indicamos al shell bash que a partir de esta línea, imprima en error
+# estándar “STDERR” cada comando antes de ser ejecutado.
+# Útil para fines de diagnostico.
+set -x
+
+# SLURM comienza la ejecución del trabajo en el mismo directorio donde
+# se invoco el comando sbatch. El siguiente comando es opcional
+cd $SLURM_SUBMIT_DIR
+
+# Consultamos los cores que podemos utilizar así como el limite para
+# el segmento de memoria de pila o “stack size”
+grep Cpus_allowed_list: /proc/self/status
+grep "Max stack size" /proc/self/limits
+ulimit -s
+
+# Ejecutamos la tarea en primer plano programa
+input1

@@ -3,17 +3,13 @@ authors = ["lsvp"]
 language = "es"
 multilingual = false
 src = "src"
-title = "mdbook-base"
+title = Documentación Yoltla"
 
 # opciones para mdbook-admonish
 [preprocessor.admonish]
 command = "mdbook-admonish"
 assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
 
-# opciones para mdbook-mermaid
-[preprocessor.mermaid]
-command = "mdbook-mermaid"
-
 [output.html]
 additional-css = ["./mdbook-admonish.css", "theme/pagetoc.css"]
-additional-js = ["mermaid.min.js", "mermaid-init.js", "theme/pagetoc.js"]
+additional-js  = ["theme/pagetoc.js"]

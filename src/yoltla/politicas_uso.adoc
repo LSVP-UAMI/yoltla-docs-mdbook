@@ -1,0 +1,84 @@
+= Políticas de uso
+
+[#directorios_y_uso]
+== Estructura de directorios y su uso
+Con el propósito de organizar jerárquicamente las cuentas de los usuarios existen tres tipos de
+cuentas:
+
+. *Usuario investigador*: Usuario responsable de hacer la petición a la comisión de
+supercómputo para acceder a Yoltla.
+. *Usuario colaborador*: usuario con permisos para acceder a Yoltla a petición del usuario
+investigador. Ejemplos de usuario colaborador: postdocs, o investigadores de otras
+instituciones.
+. *Usuario alumno*: este tipo de usuario se asignará a los estudiantes que trabajan con un
+usuario Investigador el cual tendrá acceso a Yoltla a petición del usuario investigador.
+
+Los usuarios colaboradores y alumnos, tienen asignado su directorio HOME dentro del
+directorio de trabajo del usuario investigador. El usuario investigador tiene permisos para
+acceder/modificar la información de sus alumnos y colaboradores.
+
+[#almacenamiento]
+== Almacenamiento
+Las cuotas son un mecanismo que permite administrar el almacenamiento, establece límites en
+la cantidad de información almacenada por usuario o grupo de usuarios. Estos límites son
+determinados por número de archivos (_inodos_) y espacio utilizado (_Kilobytes_).
+
+La capacidad de nuestro de sistema de almacenamiento Lustre es finito por lo que se
+establecen *cuotas* por grupo. Un grupo está integrado por un usuario investigador, sus
+_alumnos_ y _colaboradores_.
+
+|===
+|Descripción | Elementos del grupo |Directorio |Tamaño |Número de archivos
+
+|Cuota por grupo en home de Lustre
+|Usuario: Investigador, Alumnos y Colaboradores
+|HOME
+|#2 TB#
+|#2000,000/por grupo#
+
+|Cuota por usuario en ~/tmp de Lustre
+|Usuario
+|~/tmp
+|-
+|-
+|===
+
+La información almacenada en el #_~/tmp_#, tendrá un periodo de vida de #60 días#, pasado ese tiempo, los archivos serán eliminados.
+
+
+[#ejecuciones]
+== #Ejecuciones#
+Si requiere más de #30 minutos# para compilar sus aplicaciones en los nodos de acceso
+comuníquese con el personal del LSVP. Scripts, compilaciones y/o aplicaciones que requieran
+capacidades multi-threads serán eliminados sin previo aviso.
+
+
+[#respaldo_y_transferencia]
+== Respaldo de archivos y transferencia de información
+
+Es importante recordar que “*cada usuario es responsable de su información*”, se han
+implementando mecanismos para apoyar a los usuarios en el respaldo de su información. La
+infraestructura de almacenamiento Lustre de Yoltla está compuesta de elementos RAID de
+niveles #6# y #10# para tolerar fallas, aunque esto no es garantía de no sufrir percances.
+
+Se recomienda respaldar los resultados de cada ejecución de forma periódica. Recuerde que la
+información en el ~/tmp tiene un tiempo de vida de #60 días#. El directorio de trabajo de todos los usuarios se encuentra en un subdirectorio de la base /LUSTRE/home, en esta ruta no
+se tiene un tiempo de vida establecido, pero se recomienda respaldar su información a través
+de los nodos de acceso. Cuando considere que la información que va a respaldar es
+“demasiada” o el tiempo de transferencia es largo, informe a los administradores del LSVP para
+obtener ayuda.
+
+Se cuenta con el nodo de acceso #yoltla1# para realizar tareas de respaldo. Se recomienda
+utilizar el comando _rsync_ para transferencias, también puede hacer uso de _scp_ y _sftp_. Para
+mejorar la velocidad de transferencia empaquete sus archivos con la herramienta _tar_ o el
+compresor _gzip_.
+
+
+[#soporte]
+== Soporte
+Para obtener soporte relacionado con apertura de cuentas, modificación de características de
+usuarios en el uso de la infraestructura de Supercómputo y almacenamiento, dudas en políticas
+de uso de la Infraestructura y validación de aplicaciones, dirigirse con el coordinador académico
+del LSVP, Dr. Joel Ireta Moreno (correo electrónico: iret@xanum.uam). 
+
+Para obtener soporte relacionado con ejecución, instalación y errores de aplicaciones, respaldo y transferencia de archivos y/o información, conectividad, acceso, problemas con infraestructura física o atención personalizada, envíe un correo a soporte.lsvp@gmail.com.
