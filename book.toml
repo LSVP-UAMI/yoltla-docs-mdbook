@@ -3,7 +3,7 @@ authors = ["lsvp"]
 language = "es"
 multilingual = false
 src = "src"
-title = Documentación Yoltla"
+title = "Documentación Yoltla"
 
 # opciones para mdbook-admonish
 [preprocessor.admonish]
