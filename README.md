@@ -1,2 +1,2 @@
 # mdbook-base
-Documentación clúter Yoltla LSVP
+Documentación clúster Yoltla LSVP
