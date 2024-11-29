@@ -7,6 +7,9 @@ y personal académico toda la información necesaria para acceder y gestionar
 el clúster de computación Yoltla. Aquí encontrarás una guía sobre cómo acceder 
 al clúster, los nodos disponibles, y cómo enviar y administrar tus scripts de 
 manera eficiente.
+
+# **Falta agregar la imagen**
+
 <!--
 Además, ofrecemos información sobre las aplicaciones y herramientas con las 
 que cuenta el clúster, incluyendo compiladores, entornos de programación MPI, 
@@ -66,7 +69,7 @@ intensivo en proyectos académicos e investigaciones.
   * *Dentro de la universidad:* ***Ext. 4987***
   * *Desde fuera de la universidad:* ***+52 55 5804 4987***
 
-*Correo electrónico:* ***soporte.lsvp@gmail.com*** <br><br>
+*Correo electrónico:* <soporte.lsvp@gmail.com> <br><br>
 *Ubicación:* ***Universidad Autónoma Metropolitana Unidad Iztapalapa. Av. San Rafael Atlixco 108, Leyes de Reforma 1ra Secc, Iztapalapa, CP 09310, Ciudad de México, Edificio I, primer piso***.
 
 [Véase en google maps](https://n9.cl/f4eyac)
@@ -81,5 +84,5 @@ Visualización en Paralelo (**LSVP**) a través de los medios mencionados.
 Para apertura de cuentas comunícate con el Dr. **Joel Ireta Moreno**
 
 *Teléfono(s):* ***5804-4986, 5804-4987, 5804-6413*** <br>
-*Correo electrónico:* ***iret@xanum.uam.mx*** <br>
+*Correo electrónico:* <iret@xanum.uam.mx> <br>
 *Ubicación:* ***Universidad Autónoma Metropolitana Unidad Iztapalapa. Av. San Rafael Atlixco 108, Leyes de Reforma 1ra Secc, Iztapalapa, CP 09310, Ciudad de México, Edificio AT, cubículo 254***.
