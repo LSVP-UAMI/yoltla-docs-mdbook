@@ -70,7 +70,7 @@ intensivo en proyectos académicos e investigaciones.
 
 ***Contacto telefónico:***
   * *Dentro de la universidad:* ***Ext. 4987***
-  * *Desde fuera de la universidad:* ***+52 55 5804 4987***
+  * *Desde fuera de la universidad:* ***55 5804 4987***
 
 *Correo electrónico:* <soporte.lsvp@gmail.com> <br><br>
 *Ubicación:* ***Universidad Autónoma Metropolitana Unidad Iztapalapa. Av. San Rafael Atlixco 108, Leyes de Reforma 1ra Secc, Iztapalapa, CP 09310, Ciudad de México, Edificio I, primer piso***.
