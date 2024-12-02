@@ -8,7 +8,10 @@ el clúster de computación Yoltla. Aquí encontrarás una guía sobre cómo acc
 al clúster, los nodos disponibles, y cómo enviar y administrar tus scripts de 
 manera eficiente.
 
-# **Falta agregar la imagen**
+<center>
+
+![Clúster yolta](./images/c_yoltla.png)
+</center>
 
 <!--
 Además, ofrecemos información sobre las aplicaciones y herramientas con las 
