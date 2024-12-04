@@ -7,7 +7,7 @@ la aplicación htop.
 
 Para consultar en que nodo se está ejecutando un trabajo utilice el comando `squeue` 
 (ver sección [Consultar un trabajo](./envio_y_administracion_de_trabajos.md#consultar-un-trabajo)) o el comando `sacct` (ver sección 
-[Historial de trabajos](#historial-de-trabajos)).
+[Historial de trabajos](./historial_de_trabajos.md)).
 
 Por ejemplo, para consultar en que nodo se está ejecutando el trabajo con ID 817543, 
 ejecute el comando:
@@ -74,11 +74,11 @@ Desde esta interfaz puede monitorear el uso de CPU, el uso de memoria RAM y el t
 que se ha estado ejecutando su trabajo. Presione la tecla `q` para salir. 
 
 
-Para obtener más información del uso de la aplicación htop consulte la sección [htop](#htop).
+Para obtener más información del uso de la aplicación htop consulte la sección [htop](./htop.md).
 
 ```admonish note title="NOTA"
 Si el comportamiento de su trabajo no es el esperado, puede cancelar el trabajo utilizando el 
-comando `scancel` (ver sección [Cancelar un trabajo](#cancelar-un-trabajo)).
+comando `scancel` (ver sección [Cancelar un trabajo](./envio_y_administracion_de_trabajos.md#cancelar-un-trabajo)).
 
 Si necesita soporte adicional, envíe un correo a <soporte.lsvp@gmail.com>.
 ```

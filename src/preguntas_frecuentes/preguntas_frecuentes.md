@@ -27,8 +27,8 @@ Utilice el comando `sbatch` seguido del nombre de su script:
     sbatch <nombre del script>
 ```
 
-Para obtener más información, consulte la sección [Enviar un
-trabajo](../guia_usuario/tutoriales.md#enviar-un-trabajo).
+Para obtener más información, consulte la sección 
+[Enviar un trabajo](../tutoriales/envio_y_administracion_de_trabajos.md#enviar-un-trabajo).
 
 ### ¿Comó consulto un trabajo?
 
@@ -38,8 +38,8 @@ trabajo:
     squeue -j <ID del trabajo>
 ```
 
-Para obtener más información, consulte la sección [Consultar un
-trabajo](../guia_usuario/tutoriales.md#consultar-un-trabajo).
+Para obtener más información, consulte la sección 
+[Consultar un trabajo](../tutoriales/envio_y_administracion_de_trabajos.md#consultar-un-trabajo).
 
 ### ¿Comó cancelo un trabajo?
 
@@ -48,21 +48,21 @@ Utilice el comando `scancel` seguido del ID de su trabajo:
     scancel <ID del trabajo>
 ```
 
-Para obtener más información, consulte la sección [Cancelar un
-trabajo](../guia_usuario/tutoriales.md#cancelar-un-trabajo).
+Para obtener más información, consulte la sección 
+[Cancelar un trabajo](../tutoriales/envio_y_administracion_de_trabajos.md#cancelar-un-trabajo).
 
 ### ¿Qué son los Job State Codes?
 
 Son códigos que identifican el estado de un trabajo.
-Para obtener más información, consulte la sección [Job State
-Codes](../guia_usuario/anexos.md#job-state-codes).
+Para obtener más información, consulte la sección 
+[Job State Codes](../anexos/anexos.md#job-state-codes).
 
 ### ¿Qué son los Job Reason Codes?
 
 Son códigos que identifican la razón por la que un trabajo está
 esperando su ejecución.
-Para obtener más información, consulte la sección [Job Reason
-Codes](../guia_usuario/anexos.md#job-reason-codes).
+Para obtener más información, consulte la sección 
+[Job Reason Codes](../anexos/anexos.md#job-reason-codes).
 
 ## Aplicaciones
 
@@ -78,8 +78,8 @@ Utilice el comando `module` seguido del subcomando `avail`:
     module avail
 ```
 
-Para obtener más información, consulte la sección [Listar los módulos
-del clúster](../guia_usuario/tutoriales.md#listar-los-módulos-del-clúster).
+Para obtener más información, consulte la sección 
+[Listar los módulos del clúster](../tutoriales/aplicaciones_del_cluster.md#listar-los-módulos-del-clúster).
 
 ### ¿Comó cargo un módulo?
 
@@ -89,8 +89,8 @@ del módulo a cargar:
     module load <módulo>
 ```
 
-Para obtener más información, consulte la sección [Cargar un
-módulo](../guia_usuario/tutoriales.md#cargar-un-módulo).
+Para obtener más información, consulte la sección 
+[Cargar un módulo](../tutoriales/aplicaciones_del_cluster.md#cargar-un-módulo).
 
 ### ¿Comó listo todos los módulos cargados?
 
@@ -99,8 +99,8 @@ Utilice el comando `module` seguido del subcomando `list`:
     module list
 ```
 
-Para obtener más información, consulte la sección [Listar los módulos
-cargados](../guia_usuario/tutoriales.md#listar-los-módulos-cargados).
+Para obtener más información, consulte la sección 
+[Listar los módulos cargados](../tutoriales/aplicaciones_del_cluster.md#listar-los-módulos-cargados).
 
 ### ¿Comó descargo un módulo?
 
@@ -110,8 +110,8 @@ del módulo a descargar:
     module unload <módulo>
 ```
 
-Para obtener más información, consulte la sección [Descargar un
-módulo](../guia_usuario/tutoriales.md#descargar-un-módulo).
+Para obtener más información, consulte la sección 
+[Descargar un módulo](../tutoriales/aplicaciones_del_cluster.md#descargar-un-módulo).
 
 ### ¿Comó descargo todos los módulos cargados?
 
@@ -120,5 +120,5 @@ Utilice el comando `module` seguido del subcomando `purge`:
     module purge
 ```
 
-Para obtener más información, consulte la sección [Descargar todos los
-módulos cargados](../guia_usuario/tutoriales.md#descargar-todos-los-módulos-cargados).
+Para obtener más información, consulte la sección 
+[Descargar todos los módulos cargados](../tutoriales/aplicaciones_del_cluster.md#descargar-todos-los-módulos-cargados).

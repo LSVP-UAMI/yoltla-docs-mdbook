@@ -104,7 +104,7 @@ mensajes del flujo del \"error estándar\".
     --partition=partición
 ```
 
-Estable el nombre de la partición donde se formará el trabajo para ser atendido 
+Establece el nombre de la partición donde se formará el trabajo para ser atendido 
 (ver sección [Recursos de cómputo](#recursos-de-cómputo)). Si no se establece 
 una partición, el sistema formará el trabajo en la partición default *q1h-20p*.
 
