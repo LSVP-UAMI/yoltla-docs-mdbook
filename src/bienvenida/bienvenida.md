@@ -53,12 +53,6 @@ flexible, adecuado para una amplia gama de proyectos académicos y de investigac
 
 ### Atención a usuarios
 
-Póngase en contacto con nuestro personal para: instalación y optimización 
-de aplicaciones requeridas y para el apoyo en el uso de infraestructura de 
-cómputo de alto desempeño. (**Re-generar con GPT o GEMINI**)
-
--------------------------------
-
 Póngase en contacto con el Laboratorio de Supercómputo y Visualización en 
 Paralelo (**LSVP**) para recibir asistencia en la instalación y optimización 
 de aplicaciones en nuestra infraestructura de cómputo de alto rendimiento.

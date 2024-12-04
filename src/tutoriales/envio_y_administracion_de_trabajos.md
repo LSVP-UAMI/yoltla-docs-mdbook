@@ -55,10 +55,10 @@ En la siguiente tabla se da una descripción de los campos que conforman la sali
 |   PARTITION   |   Partición asignada al trabajo.  |
 |   NAME        |   Nombre del trabajo. |
 |   USER        |   Nombre del usuario que envió el trabajo.  |
-|   ST          |   Estado del trabajo (ver sección [Job State Codes](./anexos.md#job-state-codes)). |
+|   ST          |   Estado del trabajo (ver sección [Job State Codes](../anexos/anexos.md#job-state-codes)). |
 |   TIME        |   Tiempo de ejecución del trabajo.  |
 |   NODES       |   Número de nodos asignados al trabajo.  |
-|   NODELIST(REASON)  | Razón por la que el trabajo está esperando su ejecución(ver sección [Job Reason Codes](./anexos.md#job-reason-codes)).<br>Nodos en que se ejecuta el trabajo.  |
+|   NODELIST(REASON)  | Razón por la que el trabajo está esperando su ejecución(ver sección [Job Reason Codes](../anexos/anexos.md#job-reason-codes)). Nodos en que se ejecuta el trabajo.  |
 
 ```admonish note title="NOTA"
 Si ejecuta el comando `squeue` sin ninguna opción, se mostrarán todos los trabajos 

@@ -55,8 +55,8 @@ con este comando para poder filtrar su historial de trabajos:
 |----------------------------|------------------------------|   
 | --jobs=\<lista de IDs>     | Muestra todos los trabajos cuyo ID coincida con alguno de los indicados en la lista. |
 | --name=<lista de nombres>  | Muestra todos los trabajos cuyo nombre coincida con alguno de los indicados en la lista. |
-| --state=<lista de estados> |  Muestra todos los trabajos cuyo estado coincida con alguno de los indicados en la lista (ver sección [Job State Codes](./anexos.md#job-state-codes)). |
-| --partition=<lista de particiones> | Muestra todos los trabajos cuya partición coincida con alguna de las indicadas en la lista (ver sección [Recursos de cómputo](./anexos.md#recursos-de-cómputo)). |
+| --state=<lista de estados> |  Muestra todos los trabajos cuyo estado coincida con alguno de los indicados en la lista (ver sección [Job State Codes](../anexos/anexos.md#job-state-codes)). |
+| --partition=<lista de particiones> | Muestra todos los trabajos cuya partición coincida con alguna de las indicadas en la lista (ver sección [Recursos de cómputo](../anexos/anexos.md#recursos-de-cómputo)). |
 | --starttime=AAAA-MM-DD     | Muestra todos los trabajos que fueron enviados a partir de la fecha indicada. |
 | --endtime=AAAA-MM-DD       | Muestra todos los trabajos que fueron enviados antes de la fecha indicada. |
 
@@ -76,7 +76,7 @@ enviados entre el *01/04/2021* y el *01/05/2021*, ejecute el comando:
 
 Además de poder filtrar su historial de trabajos, también puede indicar el formato en 
 que se muestra esta información. Utilice la opción `--format` para indicar que campos 
-(ver sección [Job Accounting Fields](./anexos.md#job-accounting-fields)) desea 
+(ver sección [Job Accounting Fields](../anexos/anexos.md#job-accounting-fields)) desea 
 que se desplieguen en la salida del comando `sacct`:
 ```
     sacct --format=<lista de campos>

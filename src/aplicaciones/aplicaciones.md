@@ -14,7 +14,7 @@ ejecute el comando:
 ```
 
 Para obtener más información acerca de las aplicaciones disponibles en el 
-clúster y su uso, consulte la sección [¿Cómo utilizo las aplicaciones del clúster?.](../guia_usuario/tutoriales.md#aplicaciones-del-clúster)
+clúster y su uso, consulte la sección [¿Cómo utilizo las aplicaciones del clúster?.](../tutoriales/aplicaciones_del_cluster.md)
 
 ## Software disponible
 

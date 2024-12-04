@@ -39,7 +39,7 @@ cuando trabaje con programas de memoria compartida (OpenMP).
 
 
 Para obtener información más detallada de cada una de estas directivas, consulte la 
-sección [Directivas de SLURM](../guia_usuario/anexos.md#directivas-de-slurm).
+sección [Directivas de SLURM](../anexos/anexos.md#directivas-de-slurm).
 
 A continuación se presenta un ejemplo de un script:
 
@@ -59,4 +59,5 @@ A continuación se presenta un ejemplo de un script:
 srun echo "Hola Mundo!"
 ```
 
-Si desea ver más ejemplos, consulte la sección [Scripts de ejemplo](../guia_usuario/anexos.md#scripts-de-ejemplo).
+Si desea ver más ejemplos, consulte la sección 
+[Scripts de ejemplo](../anexos/anexos.md#scripts-de-ejemplo).

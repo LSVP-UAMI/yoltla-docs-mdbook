@@ -7,7 +7,7 @@ acceso `yoltla1` (148.206.50.62).
 
 ## GNU/Linux
 
-**Transferencia de onformación**
+**Transferencia de información**
 
 Para transferir información del equipo local al clúster, utilice el comando `scp` 
 siguiendo el formato que se muestra a continuación:
@@ -23,7 +23,7 @@ rsync -Paz <origen del archivo/directorio> <nombre de usuario>@<dirección IP de
 
 ><center>
 >
->**Ejemplo: Tranferencia de un directorio al clúster**
+>**Ejemplo: Transferencia de un directorio al clúster**
 ></center>
 >
 >En el siguiente ejemplo se copia el directorio *simulacion*, ubicado en el directorio 
@@ -197,7 +197,7 @@ Para ejecutar *Windows PowerShell* siga los siguientes pasos:
     En esta ventana, usted debe ejecutar los comandos que se indican en las 
     secciones siguientes.
 
-**Tranferencia de información**
+**Transferencia de información**
 
 Para transferir información del equipo local al clúster, utilice el comando `scp` 
 siguiendo el formato que se muestra a continuación:
