@@ -1,3 +1,6 @@
+
+# Yoltla
+
 El cluster Yoltla se integra por 1 nodo maestro, 2 nodos de acceso, 292
 nodos de procesamiento, 1 sistema de almacenamiento tipo Lustre de 96TB
 y comunicaciones de alta velocidad Infiniband FDR10/FDR. Los nodos de
@@ -13,33 +16,14 @@ TB de memoria RAM distribuida.\
 El sistema operativo instalado en Yoltla está basado en Linux Enterprise
 6 y Linux Enterprise 7.
 
-+-----------------+-------------+------+-------------------------------+
-| Tipo            | Nombre      | Cant | Descripción                   |
-|                 |             | idad |                               |
-+=================+=============+======+===============================+
-| Nodo de cómputo | nc\[1-4,    | 154  | 20 CPUs Intel Xeón E5-2670v2, |
-| nc              | 7-56,       |      | 64GB RAM                      |
-|                 | 61-104,     |      |                               |
-|                 | 113-156,    |      |                               |
-|                 | 165-176\]   |      |                               |
-+-----------------+-------------+------+-------------------------------+
-| Nodo de cómputo | nc\[5, 6,   | 22   | 20 CPUs Intel Xeón E5-2670v2, |
-| nc con GPU      | 57-60,      |      | 64GB RAM\                     |
-|                 | 105-112,    |      | - 2 nodos con 8 GPUs K20\     |
-|                 | 157-164\]   |      | - 4 nodos con 4 GPUs K20\     |
-|                 |             |      | - 16 nodos con 2 GPUs K20\    |
-+-----------------+-------------+------+-------------------------------+
-| Nodo de cómputo | nc          | 3    | 36 CPUs\                      |
-| nc con VGPU     | \[177-179\] |      | - 2 nodos con 2 GPUs, 128GB   |
-|                 |             |      | RAM\                          |
-|                 |             |      | - 1 nodo con 4 GPUs, 256GB    |
-|                 |             |      | RAM                           |
-+-----------------+-------------+------+-------------------------------+
-| Nodo de cómputo | tt\[1-58\]  | 58   | 20 CPUs Intel Xeón E5-2660v3, |
-| tt              |             |      | 128GB RAM                     |
-+-----------------+-------------+------+-------------------------------+
-| Nodo de cómputo | t           | 46   | 32 CPUs Intel Xeon E5-2683v4, |
-| tt v4           | t\[59-104\] |      | 256GB RAM                     |
-+-----------------+-------------+------+-------------------------------+
+***Tabla 1. Nodos del clúster Yoltla***
+| **Tipo** | **Nommbre** | **Cantidad** | **Descripción** | 
+|----------|:-----------:|:------------:|-----------------|
+| Nodo de cómputo nc | nc[1-4, 7-56, 61-104, 113-156, 165-176] | 154  | 20 CPUs Intel Xeón E5-2670v2, 64GB RAM |
+| Nodo de cómputo nc con GPU | nc[5, 6, 57-60,<br> 105-112, 157-164] | 22 | 20 CPUs Intel Xeón E5-2670v2, 64GB RAM<br><br> - 2 nodos con 8 GPUs K20<br> - 4 nodos con 4 GPUs K20<br> - 16 nodos con 2 GPUs |K20\ |
+| Nodo de cómputo nc con VGPU | nc[177-179] | 3 | 36 CPUs <br><br> - 2 nodos con 2 GPUs, 128GB RAM<br> - 1 nodo con 4 GPUs, 256GB RAM |
+| Nodo de cómputo tt | tt[1-58] | 58 | 20 CPUs Intel Xenón E5-2660v3, 128GB RAM | 
+| Nodo de cómputo tt v4 | tt[59-104] | 46 | 32 CPUs Intel Xeon E5-2683v4, 256GB RAM |
+| Nodo de cómputo ncz | | | |
 
-: Nodos del clúster Yoltla
+

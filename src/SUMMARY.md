@@ -20,3 +20,6 @@
     - [LAMMPS](./aplicaciones/lammps.md)
 - [Anexos](./anexos/anexos.md)
 - [Referencias](./referencias/referencias.md)
+- [Hardware](./yoltla/hardware.md)
+- [Index](./yoltla/index.md)
+- [Políticas de uso](./yoltla/politics_uso.md)
