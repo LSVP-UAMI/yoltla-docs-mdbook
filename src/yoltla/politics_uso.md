@@ -1,3 +1,7 @@
+# Políticas de uso
+
+## Estructura de directorios y su uso
+
 Con el propósito de organizar jerárquicamente las cuentas de los
 usuarios existen tres tipos de cuentas:
 
@@ -17,6 +21,8 @@ dentro del directorio de trabajo del usuario investigador. El usuario
 investigador tiene permisos para acceder/modificar la información de sus
 alumnos y colaboradores.
 
+## Almacenamiento
+
 Las cuotas son un mecanismo que permite administrar el almacenamiento,
 establece límites en la cantidad de información almacenada por usuario o
 grupo de usuarios. Estos límites son determinados por número de archivos
@@ -26,30 +32,22 @@ La capacidad de nuestro de sistema de almacenamiento Lustre es finito
 por lo que se establecen **cuotas** por grupo. Un grupo está integrado
 por un usuario investigador, sus *alumnos* y *colaboradores*.
 
-+-------------+-------------+-------------+-------------+-------------+
-| Descripción | Elementos   | Directorio  | Tamaño      | Número de   |
-|             | del grupo   |             |             | archivos    |
-+-------------+-------------+-------------+-------------+-------------+
-| Cuota por   | Usuario:    | HOME        | 2 TB        | 2           |
-| grupo en    | In          |             |             | 000,000/por |
-| home de     | vestigador, |             |             | grupo       |
-| Lustre      | Alumnos y   |             |             |             |
-|             | Co          |             |             |             |
-|             | laboradores |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| Cuota por   | Usuario     | \~/tmp      | \-          | \-          |
-| usuario en  |             |             |             |             |
-| \~/tmp de   |             |             |             |             |
-| Lustre      |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
+| **Descripción** | **Elementos del grupo** | **Directorio** | **Tamaño** | **Número de archivos** |
+|-----------------|-------------------------|----------------|------------|------------------------|
+| Cuota por grupo en home de Luste | Usuario: Investigador, Alumnos y Colaboradores | HOME | 2 TB | 2000,000 por grupo|
+| Cuota por usuario en ~/tmp de Lustre | Usuario | ~/temp | - | - |
 
-La información almacenada en el *\~/tmp*, tendrá un periodo de vida de
-60 días, pasado ese tiempo, los archivos serán eliminados.
+La información almacenada en el `~/tmp`, tendrá un periodo de vida de
+`60 días`, pasado ese tiempo, los archivos serán eliminados.
+
+## Ejecuciones
 
 Si requiere más de 30 minutos para compilar sus aplicaciones en los
 nodos de acceso comuníquese con el personal del LSVP. Scripts,
 compilaciones y/o aplicaciones que requieran capacidades multi-threads
 serán eliminados sin previo aviso.
+
+## Respaldo de archivos y transferencia de información
 
 Es importante recordar que "**cada usuario es responsable de su
 información**", se han implementando mecanismos para apoyar a los
@@ -73,6 +71,8 @@ respaldo. Se recomienda utilizar el comando *rsync* para transferencias,
 también puede hacer uso de *scp* y *sftp*. Para mejorar la velocidad de
 transferencia empaquete sus archivos con la herramienta *tar* o el
 compresor *gzip*.
+
+## Soporte
 
 Para obtener soporte relacionado con apertura de cuentas, modificación
 de características de usuarios en el uso de la infraestructura de
