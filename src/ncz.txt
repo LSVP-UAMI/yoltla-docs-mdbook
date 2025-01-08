@@ -1,0 +1,98 @@
+$ ssh lsvp.556@148.206.50.61
+$ scontrol show reservations
+$ salloc -w "nodo" --reservation=pruebas_foam -N 1 -n2 -t 01:00:00 -p q1
+$ ssh "nodo"
+
+# cores 
+    $ lscpu 
+        CPU(s):                64
+        On-line CPU(s) list:   0-63
+
+    $ cat /proc/cpuinfo 
+        0 - 63
+
+
+
+procesador, modelo, generacion o familia
+
+    $ lscpu 
+        CPU family:            25
+        Model:                 1
+        Model name:            AMD EPYC 7513 32-Core Processor
+    
+    $ cat /proc/cpuinfo 
+        cpu family	: 25
+        model		: 1
+        model name	: AMD EPYC 7513 32-Core Processor
+
+        core id		: 31
+        cpu cores	: 32
+
+# cores virtuales
+
+    lscpu 
+        Thread(s) per core:    1
+        Core(s) per socket:    32
+        Socket(s):             2
+        NUMA node(s):          8
+
+velocidad del procesador
+
+    $ lscpu
+        CPU MHz:               2595.101
+
+    $ cat /proc/cpuinfo
+        cpu MHz		: 2595.101
+
+memoria 
+
+    $ cat /proc/meminfo
+        MemTotal:       527920756 kB
+        MemFree:        520664108 kB
+        MemAvailable:   520369520 kB
+
+    $ sudo dmidecode –type memory | less
+
+Información del disco duro
+
+    $ df -h
+    
+    $ sudo fdisk -l
+-------------------------------------
+
+Consultar las particiones del clúster
+
+    $ sinfo -o "%.10P %.6a %.11l %.6D %.5c %N"
+
+Buscar una partición dispinible
+
+Para cargar el módulo yoltla/beta, utilice el siguiente comando:
+    $ module load yoltla/beta
+
+Posteriormente, para ejecutar la aplicación yoltla_pool, utilice el comando:
+    yoltla_pool
+
+-------------------------------------
+
+Index
+
+    tipo  --> Nodo de cómputo ncz
+    Nombre --> ncz[1-27]
+    catidad --> 27
+    Descripción --> 64 CPUs AMD EPYC 7513 32-Core Processor, 512GB
+
+
+    En ____ se agregaron 1728 núcleos de procesamiento tipo 
+    AMD EPYC 7513 32-Core de 2.59 GHz distribuidos en 27 nodos de 
+    procesamiento con 13.5 TB de memoria RAM distribuida.
+
+Hardware
+
+    Nodo de cómputo AMD EPYC 7513 32-Core (nodos ncz)
+
+    procesador --> * x AMD EPYC 7513 32-Core a 2.59 GHz
+    memoria --> 512 GB en RAM
+    disco duro --> 
+    comunicaciones --> 
+
+nd
