@@ -94,3 +94,5 @@ Hardware
     memoria --> 512 GB en RAM
     disco duro --> 
     comunicaciones --> 
+
+nd
