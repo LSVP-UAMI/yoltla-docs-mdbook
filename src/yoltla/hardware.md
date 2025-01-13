@@ -47,6 +47,16 @@ características:
 |----------------|-------------|----------------|--------------------|
 | 2 x E5-2660 v3 a 2.60GHz | 128 GB en RAM | HD 1.8\* SSD 200 GB | 1 puerto infiniband FDR14 56 Gbps. |
 
+### Nodos de cómputo AMD EPYC 7513 (nodos ncz) 
+
+**Nodo de Procesamiento,**
+| **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
+|----------------|-------------|----------------|--------------------|
+| _ x AMD EPYC 7513 a 2.59GHz | 512 GB en RAM | | |  
+
+### Nodos de cómputo _______ (nodos ngk) 
+
+### Nodos de cómputo _______ (nodos ngv) 
 
 ## Sistema de almacenamiento Lustre de 96TB 
 
