@@ -52,7 +52,7 @@ características:
 **Nodo de Procesamiento,**
 | **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
 |----------------|-------------|----------------|--------------------|
-| _ x AMD EPYC 7513 a 2.59GHz | 512 GB en RAM | | |  
+| _ x AMD EPYC 7513 a 2.59GHz | 512 GB en RAM | HDD DELLBOSS VD 450 GB | |  
 
 ### Nodos de cómputo _______ (nodos ngk) 
 
