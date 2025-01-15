@@ -47,16 +47,31 @@ características:
 |----------------|-------------|----------------|--------------------|
 | 2 x E5-2660 v3 a 2.60GHz | 128 GB en RAM | HD 1.8\* SSD 200 GB | 1 puerto infiniband FDR14 56 Gbps. |
 
-### Nodos de cómputo AMD EPYC 7513 (nodos ncz) 
 
-**Nodo de Procesamiento,**
+### Nodos de cómputo Intel Xenon E5-2670 v2 (nodos ngk) 
+**Nodo de Procesamiento, Dell, PowerEdge C6220 II**
 | **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
 |----------------|-------------|----------------|--------------------|
-| _ x AMD EPYC 7513 a 2.59GHz | 512 GB en RAM | HDD DELLBOSS VD 450 GB | |  
+| 2 x Xeon E5-2670 v2 a 2.50GHz | 64 GB en RAM | | | 
 
-### Nodos de cómputo _______ (nodos ngk) 
 
-### Nodos de cómputo _______ (nodos ngv) 
+### Nodos de cómputo Intel Xenon Gold 6140 (nodos ngv) 
+**Nodo de Procesamiento, Supermicro, SYS-1029GQ-TVRT**
+| **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
+|----------------|-------------|----------------|--------------------|
+| 2 x Xeon Gold 6140 a 2.30GHz | 128 GB en RAM| | |
+
+
+
+### Nodos de cómputo AMD EPYC 7513 (nodos ncz) 
+
+**Nodo de Procesamiento, Dell, PowerEdge C6525**
+| **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
+|----------------|-------------|----------------|--------------------|
+| 2 x AMD EPYC 7513 a 3.9GHz | 512 GB en RAM | HDD DELLBOSS VD 450 GB | |  
+
+
+
 
 ## Sistema de almacenamiento Lustre de 96TB 
 
