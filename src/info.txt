@@ -1,0 +1,206 @@
+$ ssh lsvp.556@148.206.50.61
+$ scontrol show reservations
+$ salloc -w "nodo" --reservation=pruebas_foam -N 1 -n2 -t 01:00:00 -p q1
+$ ssh "nodo"
+
+**************************************************************
+Nodos ncz
+    # cores 
+        $ lscpu 
+            CPU(s):                64
+            On-line CPU(s) list:   0-63
+
+        $ cat /proc/cpuinfo 
+            0 - 63
+
+    procesador, modelo, generacion o familia
+
+        $ lscpu 
+            CPU family:            25
+            Model:                 1
+            Model name:            AMD EPYC 7513 32-Core Processor
+        
+        $ cat /proc/cpuinfo 
+            cpu family	: 25
+            model		: 1
+            model name	: AMD EPYC 7513 32-Core Processor
+
+            core id		: 31
+            cpu cores	: 32
+
+    # cores virtuales
+
+        lscpu 
+            Thread(s) per core:    1
+            Core(s) per socket:    32
+            Socket(s):             2
+            NUMA node(s):          8
+
+    velocidad del procesador
+
+        $ lscpu
+            CPU MHz:               2595.101
+
+        $ cat /proc/cpuinfo
+            cpu MHz		: 2595.101
+
+    memoria 
+
+        $ cat /proc/meminfo
+            MemTotal:       527920756 kB
+            MemFree:        520664108 kB
+            MemAvailable:   520369520 kB
+
+        $ sudo dmidecode –type memory | less
+
+    Información del disco duro
+
+        $ df -h
+        
+        $ sudo fdisk -l
+
+        $ lsblk -d -o NAME,TYPE,SIZE,MODEL,ROTA
+            ROTA: Indica si el disco es HDD (1) o SSD (0).
+            MODEL: Muestra el modelo del disco, que puede dar pistas sobre 
+            su tipo (RPM, SAS, etc.).
+
+                NAME TYPE   SIZE MODEL            ROTA
+                sda  disk 447.1G DELLBOSS VD         1
+
+        $ sudo lshw -class disk
+            Busca en el campo description (puede indicar SAS, NL-SAS, etc.) 
+            y el product para identificar RPM o características del disco.
+
+        $ lsblk -d -o NAME,MODEL,SIZE
+            Buscar en el navagador las opciones
+
+    Informacion sobre el tipo de comunicaciones
+
+        $ lspci | grep -i mellanox --> dispositivos Mellanox y otras interfaces de red conectadas.
+            e2:00.0 Infiniband controller: Mellanox Technologies MT28908 Family [ConnectX-6]
+
+        
+        $ ibstat --> Proporciona información sobre las interfaces Infiniband.
+            CA 'mlx5_0'
+                CA type: MT4123
+                Number of ports: 1
+                Firmware version: 20.31.2006
+                Hardware version: 0
+                Node GUID: 0x08c0eb0300bb49d8
+                System image GUID: 0x08c0eb0300bb49d8
+                Port 1:
+                    State: Active
+                    Physical state: LinkUp
+                    Rate: 56
+                    Base lid: 347
+                    LMC: 0
+                    SM lid: 8
+                    Capability mask: 0x2659e848
+                    Port GUID: 0x08c0eb0300bb49d8
+                    Link layer: InfiniBand
+        
+        
+        $ dmesg | grep -i mellanox --> Busca información sobre las tarjetas de red al iniciar el sistema.
+            [    9.993390] mlx5_ib: Mellanox Connect-IB Infiniband driver v5.0-0
+
+
+**************************************************************
+Nodos tt(13)
+    
+    $ lscpu 
+        CPU(s):                20
+        On-line CPU(s) list:   0-19
+
+        CPU family:            6
+        Model:                 63
+        Model name:            Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz
+
+        Thread(s) per core:    1
+        Core(s) per socket:    10
+        Socket(s):             2
+        NUMA node(s):          2
+
+        CPU MHz:               1200.183
+        CPU max MHz:           3300.0000
+        CPU min MHz:           1200.0000
+
+        MemTotal:       131912828 kB
+        MemFree:        130522304 kB
+        MemAvailable:   130160052 kB
+
+    $ lsblk -d -o NAME,TYPE,SIZE,MODEL,ROTA
+        ROTA: Indica si el disco es HDD (1) o SSD (0).
+        MODEL: Muestra el modelo del disco, que puede dar pistas sobre 
+        su tipo (RPM, SAS, etc.).
+            
+            NAME TYPE   SIZE MODEL            ROTA
+            sda  disk 186.3G INTEL SSDSC1BG20    0
+
+    
+    $ lspci | grep -i mellanox
+        81:00.0 Network controller: Mellanox Technologies MT27500 Family [ConnectX-3]
+
+
+    $ ibstat --> Proporciona información sobre las interfaces Infiniband.
+        CA 'mlx4_0'
+        CA type: MT4099
+        Number of ports: 1
+        Firmware version: 2.34.5000
+        Hardware version: 1
+        Node GUID: 0xe41d2d0300b9e530
+        System image GUID: 0xe41d2d0300b9e533
+        Port 1:
+            State: Active
+            Physical state: LinkUp
+            Rate: 40 (FDR10)
+            Base lid: 200
+            LMC: 0
+            SM lid: 8
+            Capability mask: 0x02594868
+            Port GUID: 0xe41d2d0300b9e531
+            Link layer: InfiniBand
+
+    $ dmesg | grep -i mellanox
+        [    2.640431] mlx4_core: Mellanox ConnectX core driver v4.0-0
+        [   13.890081] <mlx4_ib> mlx4_ib_add: mlx4_ib: Mellanox ConnectX InfiniBand driver v4.0-0
+        [   14.299192] mlx4_en: Mellanox ConnectX HCA Ethernet driver v4.0-0
+
+    
+-------------------------------------
+
+Consultar las particiones del clúster
+
+    $ sinfo -o "%.10P %.6a %.11l %.6D %.5c %N"
+
+Buscar una partición dispinible
+
+Para cargar el módulo yoltla/beta, utilice el siguiente comando:
+    $ module load yoltla/beta
+
+Posteriormente, para ejecutar la aplicación yoltla_pool, utilice el comando:
+    yoltla_pool
+
+-------------------------------------
+
+Index
+
+    tipo  --> Nodo de cómputo ncz
+    Nombre --> ncz[1-27]
+    catidad --> 27
+    Descripción --> 64 CPUs AMD EPYC 7513 32-Core Processor, 512GB
+
+
+    En ____ se agregaron 1728 núcleos de procesamiento tipo 
+    AMD EPYC 7513 32-Core de 2.59 GHz distribuidos en 27 nodos de 
+    procesamiento con 13.5 TB de memoria RAM distribuida.
+
+Hardware
+
+    Nodo de cómputo AMD EPYC 7513 32-Core (nodos ncz)
+
+    procesador --> * x AMD EPYC 7513 32-Core a 2.59 GHz
+    memoria --> 512 GB en RAM
+    disco duro --> 
+    comunicaciones --> 
+
+nd
