@@ -1,206 +1,1101 @@
-$ ssh lsvp.556@148.206.50.61
-$ scontrol show reservations
-$ salloc -w "nodo" --reservation=pruebas_foam -N 1 -n2 -t 01:00:00 -p q1
-$ ssh "nodo"
+# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 3.3 present.
+# SMBIOS implementations newer than version 3.2.0 are not
+# fully supported by this version of dmidecode.
+58 structures occupying 4145 bytes.
+Table at 0x69797000.
 
-**************************************************************
-Nodos ncz
-    # cores 
-        $ lscpu 
-            CPU(s):                64
-            On-line CPU(s) list:   0-63
+Handle 0xDA00, DMI type 218, 17 bytes
+OEM-specific Type
+        Header and Data:
+                DA 11 00 DA B2 00 17 20 0E 10 03 FF FF 00 00 00
+                00
 
-        $ cat /proc/cpuinfo 
-            0 - 63
+Handle 0x0000, DMI type 0, 26 bytes
+BIOS Information
+        Vendor: Dell Inc.
+        Version: 2.7.3
+        Release Date: 03/30/2022
+        Address: 0xF0000
+        Runtime Size: 64 kB
+        ROM Size: 32 MB
+        Characteristics:
+                ISA is supported
+                PCI is supported
+                PNP is supported
+                BIOS is upgradeable
+                BIOS shadowing is allowed
+                Boot from CD is supported
+                Selectable boot is supported
+                EDD is supported
+                Japanese floppy for Toshiba 1.2 MB is supported (int 13h)
+                5.25"/360 kB floppy services are supported (int 13h)
+                5.25"/1.2 MB floppy services are supported (int 13h)
+                3.5"/720 kB floppy services are supported (int 13h)
+                8042 keyboard services are supported (int 9h)
+                Serial services are supported (int 14h)
+                CGA/mono video services are supported (int 10h)
+                ACPI is supported
+                USB legacy is supported
+                BIOS boot specification is supported
+                Function key-initiated network boot is supported
+                Targeted content distribution is supported
+                UEFI is supported
+        BIOS Revision: 2.7
 
-    procesador, modelo, generacion o familia
+Handle 0x0100, DMI type 1, 27 bytes
+System Information
+        Manufacturer: Dell Inc.
+        Product Name: PowerEdge C6525
+        Version: Not Specified
+        Serial Number: 8JMBWM3
+        UUID: 4c4c4544-004a-4d10-8042-b8c04f574d33
+        Wake-up Type: Power Switch
+        SKU Number: SKU=NotProvided;ModelName=PowerEdge C6525
+        Family: PowerEdge
 
-        $ lscpu 
-            CPU family:            25
-            Model:                 1
-            Model name:            AMD EPYC 7513 32-Core Processor
-        
-        $ cat /proc/cpuinfo 
-            cpu family	: 25
-            model		: 1
-            model name	: AMD EPYC 7513 32-Core Processor
+Handle 0x0200, DMI type 2, 8 bytes
+Base Board Information
+        Manufacturer: Dell Inc.
+        Product Name: 0978PJ
+        Version: A07
+        Serial Number: .8JMBWM3.CNWS3001490050.
 
-            core id		: 31
-            cpu cores	: 32
+Handle 0x0300, DMI type 3, 22 bytes
+Chassis Information
+        Manufacturer: Dell Inc.
+        Type: Rack Mount Chassis
+        Lock: Not Present
+        Version: Not Specified
+        Serial Number: 8JMBWM3
+        Asset Tag: Not Specified
+        Boot-up State: Safe
+        Power Supply State: Safe
+        Thermal State: Safe
+        Security Status: Unknown
+        OEM Information: 0x00000000
+        Height: 2 U
+        Number Of Power Cords: Unspecified
+        Contained Elements: 0
+        SKU Number: Not Specified
 
-    # cores virtuales
+Handle 0x0400, DMI type 4, 48 bytes
+Processor Information
+        Socket Designation: CPU1
+        Type: Central Processor
+        Family: Zen
+        Manufacturer: AMD
+        ID: 11 0F A0 00 FF FB 8B 17
+        Signature: Family 25, Model 1, Stepping 1
+        Flags:
+                FPU (Floating-point unit on-chip)
+                VME (Virtual mode extension)
+                DE (Debugging extension)
+                PSE (Page size extension)
+                TSC (Time stamp counter)
+                MSR (Model specific registers)
+                PAE (Physical address extension)
+                MCE (Machine check exception)
+                CX8 (CMPXCHG8 instruction supported)
+                APIC (On-chip APIC hardware supported)
+                SEP (Fast system call)
+                MTRR (Memory type range registers)
+                PGE (Page global enable)
+                MCA (Machine check architecture)
+                CMOV (Conditional move instruction supported)
+                PAT (Page attribute table)
+                PSE-36 (36-bit page size extension)
+                CLFSH (CLFLUSH instruction supported)
+                MMX (MMX technology supported)
+                FXSR (FXSAVE and FXSTOR instructions supported)
+                SSE (Streaming SIMD extensions)
+                SSE2 (Streaming SIMD extensions 2)
+                HTT (Multi-threading)
+        Version: AMD EPYC 7513 32-Core Processor
+        Voltage: 1.8 V
+        External Clock: 18000 MHz
+        Max Speed: 3900 MHz
+        Current Speed: 2600 MHz
+        Status: Populated, Enabled
+        Upgrade: Socket SP3
+        L1 Cache Handle: 0x0700
+        L2 Cache Handle: 0x0701
+        L3 Cache Handle: 0x0702
+        Serial Number: Not Specified
+        Asset Tag: Not Specified
+        Part Number: Not Specified
+        Core Count: 32
+        Core Enabled: 32
+        Thread Count: 32
+        Characteristics:
+                64-bit capable
+                Multi-Core
+                Hardware Thread
+                Execute Protection
+                Enhanced Virtualization
 
-        lscpu 
-            Thread(s) per core:    1
-            Core(s) per socket:    32
-            Socket(s):             2
-            NUMA node(s):          8
+Handle 0x0401, DMI type 4, 48 bytes
+Processor Information
+        Socket Designation: CPU2
+        Type: Central Processor
+        Family: Zen
+        Manufacturer: AMD
+        ID: 11 0F A0 00 FF FB 8B 17
+        Signature: Family 25, Model 1, Stepping 1
+        Flags:
+                FPU (Floating-point unit on-chip)
+                VME (Virtual mode extension)
+                DE (Debugging extension)
+                PSE (Page size extension)
+                TSC (Time stamp counter)
+                MSR (Model specific registers)
+                PAE (Physical address extension)
+                MCE (Machine check exception)
+                CX8 (CMPXCHG8 instruction supported)
+                APIC (On-chip APIC hardware supported)
+                SEP (Fast system call)
+                MTRR (Memory type range registers)
+                PGE (Page global enable)
+                MCA (Machine check architecture)
+                CMOV (Conditional move instruction supported)
+                PAT (Page attribute table)
+                PSE-36 (36-bit page size extension)
+                CLFSH (CLFLUSH instruction supported)
+                MMX (MMX technology supported)
+                FXSR (FXSAVE and FXSTOR instructions supported)
+                SSE (Streaming SIMD extensions)
+                SSE2 (Streaming SIMD extensions 2)
+                HTT (Multi-threading)
+        Version: AMD EPYC 7513 32-Core Processor
+        Voltage: 1.8 V
+        External Clock: 18000 MHz
+        Max Speed: 3900 MHz
+        Current Speed: 2600 MHz
+        Status: Populated, Enabled
+        Upgrade: Socket SP3
+        L1 Cache Handle: 0x0703
+        L2 Cache Handle: 0x0704
+        L3 Cache Handle: 0x0705
+        Serial Number: Not Specified
+        Asset Tag: Not Specified
+        Part Number: Not Specified
+        Core Count: 32
+        Core Enabled: 32
+        Thread Count: 32
+        Characteristics:
+                64-bit capable
+                Multi-Core
+                Hardware Thread
+                Execute Protection
+                Enhanced Virtualization
 
-    velocidad del procesador
+Handle 0x0700, DMI type 7, 27 bytes
+Cache Information
+        Socket Designation: Not Specified
+        Configuration: Enabled, Not Socketed, Level 1
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 0 kB
+        Maximum Size: 0 kB
+        Supported SRAM Types:
+                Unknown
+        Installed SRAM Type: Unknown
+        Speed: Unknown
+        Error Correction Type: Parity
+        System Type: Unified
+        Associativity: 8-way Set-associative
 
-        $ lscpu
-            CPU MHz:               2595.101
+Handle 0x0701, DMI type 7, 27 bytes
+Cache Information
+        Socket Designation: Not Specified
+        Configuration: Enabled, Not Socketed, Level 2
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 0 kB
+        Maximum Size: 0 kB
+        Supported SRAM Types:
+                Unknown
+        Installed SRAM Type: Unknown
+        Speed: Unknown
+        Error Correction Type: Multi-bit ECC
+        System Type: Unified
+        Associativity: 8-way Set-associative
 
-        $ cat /proc/cpuinfo
-            cpu MHz		: 2595.101
+Handle 0x0702, DMI type 7, 27 bytes
+Cache Information
+        Socket Designation: Not Specified
+        Configuration: Enabled, Not Socketed, Level 3
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 0 kB
+        Maximum Size: 0 kB
+        Supported SRAM Types:
+                Unknown
+        Installed SRAM Type: Unknown
+        Speed: Unknown
+        Error Correction Type: Multi-bit ECC
+        System Type: Unified
+        Associativity: 16-way Set-associative
 
-    memoria 
+Handle 0x0703, DMI type 7, 27 bytes
+Cache Information
+        Socket Designation: Not Specified
+        Configuration: Enabled, Not Socketed, Level 1
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 0 kB
+        Maximum Size: 0 kB
+        Supported SRAM Types:
+                Unknown
+        Installed SRAM Type: Unknown
+        Speed: Unknown
+        Error Correction Type: Parity
+        System Type: Unified
+        Associativity: 8-way Set-associative
 
-        $ cat /proc/meminfo
-            MemTotal:       527920756 kB
-            MemFree:        520664108 kB
-            MemAvailable:   520369520 kB
+Handle 0x0704, DMI type 7, 27 bytes
+Cache Information
+        Socket Designation: Not Specified
+        Configuration: Enabled, Not Socketed, Level 2
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 0 kB
+        Maximum Size: 0 kB
+        Supported SRAM Types:
+                Unknown
+        Installed SRAM Type: Unknown
+        Speed: Unknown
+        Error Correction Type: Multi-bit ECC
+        System Type: Unified
+        Associativity: 8-way Set-associative
 
-        $ sudo dmidecode –type memory | less
+Handle 0x0705, DMI type 7, 27 bytes
+Cache Information
+        Socket Designation: Not Specified
+        Configuration: Enabled, Not Socketed, Level 3
+        Operational Mode: Write Back
+        Location: Internal
+        Installed Size: 0 kB
+        Maximum Size: 0 kB
+        Supported SRAM Types:
+                Unknown
+        Installed SRAM Type: Unknown
+        Speed: Unknown
+        Error Correction Type: Multi-bit ECC
+        System Type: Unified
+        Associativity: 16-way Set-associative
 
-    Información del disco duro
+Handle 0x0800, DMI type 8, 9 bytes
+Port Connector Information
+        Internal Reference Designator: Not Specified
+        Internal Connector Type: None
+        External Reference Designator: Back USB port 1
+        External Connector Type: Access Bus (USB)
+        Port Type: USB
 
-        $ df -h
-        
-        $ sudo fdisk -l
+Handle 0x0801, DMI type 8, 9 bytes
+Port Connector Information
+        Internal Reference Designator: Not Specified
+        Internal Connector Type: None
+        External Reference Designator: Video port 1
+        External Connector Type: DB-15 female
+        Port Type: Video Port
 
-        $ lsblk -d -o NAME,TYPE,SIZE,MODEL,ROTA
-            ROTA: Indica si el disco es HDD (1) o SSD (0).
-            MODEL: Muestra el modelo del disco, que puede dar pistas sobre 
-            su tipo (RPM, SAS, etc.).
+Handle 0x0802, DMI type 8, 9 bytes
+Port Connector Information
+        Internal Reference Designator: Not Specified
+        Internal Connector Type: None
+        External Reference Designator: 1
+        External Connector Type: RJ-45
+        Port Type: Network Port
 
-                NAME TYPE   SIZE MODEL            ROTA
-                sda  disk 447.1G DELLBOSS VD         1
+Handle 0x0803, DMI type 8, 9 bytes
+Port Connector Information
+        Internal Reference Designator: Not Specified
+        Internal Connector Type: None
+        External Reference Designator: 2
+        External Connector Type: RJ-45
+        Port Type: Network Port
 
-        $ sudo lshw -class disk
-            Busca en el campo description (puede indicar SAS, NL-SAS, etc.) 
-            y el product para identificar RPM o características del disco.
+Handle 0x0804, DMI type 8, 9 bytes
+Port Connector Information
+        Internal Reference Designator: Not Specified
+        Internal Connector Type: None
+        External Reference Designator: 3
+        External Connector Type: RJ-45
+        Port Type: Network Port
 
-        $ lsblk -d -o NAME,MODEL,SIZE
-            Buscar en el navagador las opciones
+Handle 0x0805, DMI type 8, 9 bytes
+Port Connector Information
+        Internal Reference Designator: Not Specified
+        Internal Connector Type: None
+        External Reference Designator: 4
+        External Connector Type: RJ-45
+        Port Type: Network Port
 
-    Informacion sobre el tipo de comunicaciones
+Handle 0x0806, DMI type 8, 9 bytes
+Port Connector Information
+        Internal Reference Designator: Not Specified
+        Internal Connector Type: None
+        External Reference Designator: 1
+        External Connector Type: RJ-45
+        Port Type: Network Port
 
-        $ lspci | grep -i mellanox --> dispositivos Mellanox y otras interfaces de red conectadas.
-            e2:00.0 Infiniband controller: Mellanox Technologies MT28908 Family [ConnectX-6]
+Handle 0x0900, DMI type 9, 24 bytes
+System Slot Information
+        Designation: PCIe Slot 2
+        Type: x16 PCI Express 4
+        Current Usage: In Use
+        Length: Long
+        ID: 2
+        Characteristics:
+                3.3 V is provided
+                PME signal is supported
+        Bus Address: 0000:e2:00.0
+        Data Bus Width: 0
+        Peer Devices: 0
 
-        
-        $ ibstat --> Proporciona información sobre las interfaces Infiniband.
-            CA 'mlx5_0'
-                CA type: MT4123
-                Number of ports: 1
-                Firmware version: 20.31.2006
-                Hardware version: 0
-                Node GUID: 0x08c0eb0300bb49d8
-                System image GUID: 0x08c0eb0300bb49d8
-                Port 1:
-                    State: Active
-                    Physical state: LinkUp
-                    Rate: 56
-                    Base lid: 347
-                    LMC: 0
-                    SM lid: 8
-                    Capability mask: 0x2659e848
-                    Port GUID: 0x08c0eb0300bb49d8
-                    Link layer: InfiniBand
-        
-        
-        $ dmesg | grep -i mellanox --> Busca información sobre las tarjetas de red al iniciar el sistema.
-            [    9.993390] mlx5_ib: Mellanox Connect-IB Infiniband driver v5.0-0
+Handle 0x0901, DMI type 9, 24 bytes
+System Slot Information
+        Designation: Integrated 4
+        Type: x8 M.2 Socket 3
+        Current Usage: In Use
+        Length: Other
+        Characteristics:
+                3.3 V is provided
+                PME signal is supported
+        Bus Address: 0000:41:00.0
+        Data Bus Width: 0
+        Peer Devices: 0
 
+Handle 0x0B00, DMI type 11, 5 bytes
+OEM Strings
+        String 1: Dell System
+        String 2: 5[0000]
+        String 3: 14[1]
+        String 4: 17[02B59CB20F394067]
+        String 5: 17[02B5AEC314A300CF]
+        String 6: 18[0]
+        String 7: 19[1]
+        String 8: 19[1]
+        String 9: 26[0]
+        String 10: 31[1]
+        String 11: 30[000000006979D000;00100000]
 
-**************************************************************
-Nodos tt(13)
-    
-    $ lscpu 
-        CPU(s):                20
-        On-line CPU(s) list:   0-19
+Handle 0x0C00, DMI type 12, 5 bytes
+System Configuration Options
+        Option 1: NVRAM_CLR: Clear user settable NVRAM areas and set defaults
+        Option 2: PWRD_EN: Close to enable password
 
-        CPU family:            6
-        Model:                 63
-        Model name:            Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz
+Handle 0x0D00, DMI type 13, 22 bytes
+BIOS Language Information
+        Language Description Format: Long
+        Installable Languages: 1
+                en|US|iso8859-1
+        Currently Installed Language: en|US|iso8859-1
 
-        Thread(s) per core:    1
-        Core(s) per socket:    10
-        Socket(s):             2
-        NUMA node(s):          2
+Handle 0x1000, DMI type 16, 23 bytes
+Physical Memory Array
+        Location: System Board Or Motherboard
+        Use: System Memory
+        Error Correction Type: Multi-bit ECC
+        Maximum Capacity: 2 TB
+        Error Information Handle: Not Provided
+        Number Of Devices: 16
 
-        CPU MHz:               1200.183
-        CPU max MHz:           3300.0000
-        CPU min MHz:           1200.0000
+Handle 0x1100, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A1
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 95901FC2
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-        MemTotal:       131912828 kB
-        MemFree:        130522304 kB
-        MemAvailable:   130160052 kB
+Handle 0x1101, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A2
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 959033AF
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-    $ lsblk -d -o NAME,TYPE,SIZE,MODEL,ROTA
-        ROTA: Indica si el disco es HDD (1) o SSD (0).
-        MODEL: Muestra el modelo del disco, que puede dar pistas sobre 
-        su tipo (RPM, SAS, etc.).
-            
-            NAME TYPE   SIZE MODEL            ROTA
-            sda  disk 186.3G INTEL SSDSC1BG20    0
+Handle 0x1102, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A3
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 9590201A
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-    
-    $ lspci | grep -i mellanox
-        81:00.0 Network controller: Mellanox Technologies MT27500 Family [ConnectX-3]
+Handle 0x1103, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A4
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 959032F9
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
+Handle 0x1104, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A5
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 959032C6
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-    $ ibstat --> Proporciona información sobre las interfaces Infiniband.
-        CA 'mlx4_0'
-        CA type: MT4099
-        Number of ports: 1
-        Firmware version: 2.34.5000
-        Hardware version: 1
-        Node GUID: 0xe41d2d0300b9e530
-        System image GUID: 0xe41d2d0300b9e533
-        Port 1:
-            State: Active
-            Physical state: LinkUp
-            Rate: 40 (FDR10)
-            Base lid: 200
-            LMC: 0
-            SM lid: 8
-            Capability mask: 0x02594868
-            Port GUID: 0xe41d2d0300b9e531
-            Link layer: InfiniBand
+Handle 0x1105, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A6
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 9590325F
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-    $ dmesg | grep -i mellanox
-        [    2.640431] mlx4_core: Mellanox ConnectX core driver v4.0-0
-        [   13.890081] <mlx4_ib> mlx4_ib_add: mlx4_ib: Mellanox ConnectX InfiniBand driver v4.0-0
-        [   14.299192] mlx4_en: Mellanox ConnectX HCA Ethernet driver v4.0-0
+Handle 0x1106, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A7
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 95902094
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-    
--------------------------------------
+Handle 0x1107, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 1
+        Locator: A8
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 959033A9
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-Consultar las particiones del clúster
+Handle 0x1108, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B1
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 95902005
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-    $ sinfo -o "%.10P %.6a %.11l %.6D %.5c %N"
+Handle 0x1109, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B2
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 95902055
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-Buscar una partición dispinible
+Handle 0x110A, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B3
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 959032A4
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-Para cargar el módulo yoltla/beta, utilice el siguiente comando:
-    $ module load yoltla/beta
+Handle 0x110B, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B4
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 9590325D
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-Posteriormente, para ejecutar la aplicación yoltla_pool, utilice el comando:
-    yoltla_pool
+Handle 0x110C, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B5
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 9590322E
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
--------------------------------------
+Handle 0x110D, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B6
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 95903263
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-Index
+Handle 0x110E, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B7
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 9590200C
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
-    tipo  --> Nodo de cómputo ncz
-    Nombre --> ncz[1-27]
-    catidad --> 27
-    Descripción --> 64 CPUs AMD EPYC 7513 32-Core Processor, 512GB
+Handle 0x110F, DMI type 17, 92 bytes
+Memory Device
+        Array Handle: 0x1000
+        Error Information Handle: Not Provided
+        Total Width: 72 bits
+        Data Width: 64 bits
+        Size: 32 GB
+        Form Factor: DIMM
+        Set: 2
+        Locator: B8
+        Bank Locator: Not Specified
+        Type: DDR4
+        Type Detail: Synchronous Registered (Buffered)
+        Speed: 3200 MT/s
+        Manufacturer: 80AD869D80AD
+        Serial Number: 95902013
+        Asset Tag: 01214522
+        Part Number: HMAA4GR7CJR8N-XN
+        Rank: 2
+        Configured Memory Speed: 3200 MT/s
+        Minimum Voltage: 1.2 V
+        Maximum Voltage: 1.2 V
+        Configured Voltage: 1.2 V
+        Memory Technology: DRAM
+        Memory Operating Mode Capability: Volatile memory
+        Firmware Version: Not Specified
+        Module Manufacturer ID: Unknown
+        Module Product ID: Unknown
+        Memory Subsystem Controller Manufacturer ID: Unknown
+        Memory Subsystem Controller Product ID: Unknown
+        Non-Volatile Size: None
+        Volatile Size: 32 GB
+        Cache Size: None
+        Logical Size: None
 
+Handle 0x1300, DMI type 19, 31 bytes
+Memory Array Mapped Address
+        Starting Address: 0x00000000000
+        Ending Address: 0x0007FFFFFFF
+        Range Size: 2 GB
+        Physical Array Handle: 0x1000
+        Partition Width: 2
 
-    En ____ se agregaron 1728 núcleos de procesamiento tipo 
-    AMD EPYC 7513 32-Core de 2.59 GHz distribuidos en 27 nodos de 
-    procesamiento con 13.5 TB de memoria RAM distribuida.
+Handle 0x1301, DMI type 19, 31 bytes
+Memory Array Mapped Address
+        Starting Address: 0x00100000000
+        Ending Address: 0x0807FFFFFFF
+        Range Size: 510 GB
+        Physical Array Handle: 0x1000
+        Partition Width: 2
 
-Hardware
+Handle 0x2000, DMI type 32, 11 bytes
+System Boot Information
+        Status: No errors detected
 
-    Nodo de cómputo AMD EPYC 7513 32-Core (nodos ncz)
+Handle 0x2600, DMI type 38, 18 bytes
+IPMI Device Information
+        Interface Type: KCS (Keyboard Control Style)
+        Specification Version: 2.0
+        I2C Slave Address: 0x10
+        NV Storage Device: Not Present
+        Base Address: 0x0000000000000CA8 (I/O)
+        Register Spacing: 32-bit Boundaries
+        Interrupt Polarity: Active High
+        Interrupt Trigger Mode: Edge
+        Interrupt Number: 10
 
-    procesador --> * x AMD EPYC 7513 32-Core a 2.59 GHz
-    memoria --> 512 GB en RAM
-    disco duro --> 
-    comunicaciones --> 
+Handle 0x2900, DMI type 41, 11 bytes
+Onboard Device
+        Reference Designation: Embedded NIC
+        Type: Ethernet
+        Status: Enabled
+        Type Instance: 1
+        Bus Address: 0000:e1:00.0
 
-nd
+Handle 0x2901, DMI type 41, 11 bytes
+Onboard Device
+        Reference Designation: Integrated NIC 1
+        Type: Ethernet
+        Status: Enabled
+        Type Instance: 2
+        Bus Address: 0000:01:00.0
+
+Handle 0x2902, DMI type 41, 11 bytes
+Onboard Device
+        Reference Designation: Integrated NIC 2
+        Type: Ethernet
+        Status: Enabled
+        Type Instance: 3
+        Bus Address: 0000:01:00.1
+
+Handle 0x2903, DMI type 41, 11 bytes
+Onboard Device
+        Reference Designation: Integrated NIC 3
+        Type: Ethernet
+        Status: Enabled
+        Type Instance: 4
+        Bus Address: 0000:02:00.0
+
+Handle 0x2904, DMI type 41, 11 bytes
+Onboard Device
+        Reference Designation: Integrated NIC 4
+        Type: Ethernet
+        Status: Enabled
+        Type Instance: 5
+        Bus Address: 0000:02:00.1
+
+Handle 0x2905, DMI type 41, 11 bytes
+Onboard Device
+        Reference Designation: Embedded Video
+        Type: Video
+        Status: Enabled
+        Type Instance: 1
+        Bus Address: 0000:62:00.0
+
+Handle 0xB100, DMI type 177, 12 bytes
+OEM-specific Type
+        Header and Data:
+                B1 0C 00 B1 02 02 00 00 00 00 00 00
+
+Handle 0xD000, DMI type 208, 16 bytes
+OEM-specific Type
+        Header and Data:
+                D0 10 00 D0 03 11 FE 00 00 09 00 00 00 01 00 00
+
+Handle 0xD800, DMI type 216, 9 bytes
+OEM-specific Type
+        Header and Data:
+                D8 09 00 D8 01 02 00 F0 03
+        Strings:
+                Matrox
+                {* Content TBD *}
+
+Handle 0xE100, DMI type 225, 13 bytes
+OEM-specific Type
+        Header and Data:
+                E1 0D 00 E1 01 01 00 04 00 02 01 04 00
+        Strings:
+                CPU.Socket.1
+                CPU.Socket.2
+
+Handle 0xE101, DMI type 225, 69 bytes
+OEM-specific Type
+        Header and Data:
+                E1 45 01 E1 01 01 00 11 00 02 01 11 00 03 02 11
+                00 04 03 11 00 05 04 11 00 06 05 11 00 07 06 11
+                00 08 07 11 00 09 08 11 00 0A 09 11 00 0B 0A 11
+                00 0C 0B 11 00 0D 0C 11 00 0E 0D 11 00 0F 0E 11
+                00 10 0F 11 00
+        Strings:
+                DIMM.Socket.A1
+                DIMM.Socket.A2
+                DIMM.Socket.A3
+                DIMM.Socket.A4
+                DIMM.Socket.A5
+                DIMM.Socket.A6
+                DIMM.Socket.A7
+                DIMM.Socket.A8
+                DIMM.Socket.B1
+                DIMM.Socket.B2
+                DIMM.Socket.B3
+                DIMM.Socket.B4
+                DIMM.Socket.B5
+                DIMM.Socket.B6
+                DIMM.Socket.B7
+                DIMM.Socket.B8
+
+Handle 0xFEFF, DMI type 127, 4 bytes
+End Of Table
+
