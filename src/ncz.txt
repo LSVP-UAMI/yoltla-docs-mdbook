@@ -1119,3 +1119,12 @@ nodo tt13 (ttv3)
                 
 
 ***************************************************
+
+e2:00.0 Infiniband controller: Mellanox Technologies MT28908 Family [ConnectX-6]
+	Subsystem: Mellanox Technologies Device 0018
+	Flags: bus master, fast devsel, latency 0, IRQ 94, NUMA node 4
+	Memory at b8000000 (64-bit, prefetchable) [size=32M]
+	Expansion ROM at b7000000 [disabled] [size=1M]
+	Capabilities: <access denied>
+	Kernel driver in use: mlx5_core
+	Kernel modules: mlx5_core

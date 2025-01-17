@@ -1530,4 +1530,28 @@ $ cat /proc/meminfo
         DirectMap2M:    59678720 kB
         DirectMap1G:     3145728 kB
 
-        
+******************************************************
+
+NAME     SIZE MODEL            TYPE ROTA
+sda    931.5G ST1000NM0033-9ZM disk    1
+├─sda1   100G                  part    1
+└─sda2 831.5G                  part    1
+
+******************************************************
+
+82:00.0 Network controller: Mellanox Technologies MT27500 Family [ConnectX-3]
+        Subsystem: Mellanox Technologies ConnectX-3 VPI IB FDR/40 GbE Single Port QSFP+ Mezzanine Card
+        Flags: bus master, fast devsel, latency 0, IRQ 53, NUMA node 1
+        Memory at ec000000 (64-bit, non-prefetchable) [size=1M]
+        Memory at 33fff800000 (64-bit, prefetchable) [size=8M]
+        Expansion ROM at <ignored> [disabled]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [48] Vital Product Data
+        Capabilities: [9c] MSI-X: Enable+ Count=128 Masked-
+        Capabilities: [60] Express Endpoint, MSI 00
+        Capabilities: [100] Alternative Routing-ID Interpretation (ARI)
+        Capabilities: [148] Device Serial Number f4-52-14-03-00-59-60-40
+        Capabilities: [154] Advanced Error Reporting
+        Capabilities: [18c] #19
+        Kernel driver in use: mlx4_core
+        Kernel modules: mlx4_core

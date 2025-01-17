@@ -52,14 +52,14 @@ características:
 **Nodo de Procesamiento, Dell, PowerEdge C6220 II**
 | **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
 |----------------|-------------|----------------|--------------------|
-| 2 x Xeon E5-2670 v2 a 2.50GHz | 64 GB en RAM | | | 
+| 2 x Xeon E5-2670 v2 a 2.50GHz | 64 GB en RAM |ST1000NM0033-9ZM HDD 1TB, 7.2k RPM, 6Gb/s. 3.5¨ | 1 Tarjeta Mellanox MT27500 (ConnectX-3) DR/40 GbE | 
 
 
 ### Nodos de cómputo Intel Xenon Gold 6140 (nodos ngv) 
 **Nodo de Procesamiento, Supermicro, SYS-1029GQ-TVRT**
 | **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
 |----------------|-------------|----------------|--------------------|
-| 2 x Xeon Gold 6140 a 2.30GHz | 128 GB en RAM| | |
+| 2 x Xeon Gold 6140 a 2.30GHz | 128 GB en RAM| - MZ7KM240HMHQ0D3 SSD 240GB, 6Gb/s, 2.5¨<br> - ST1000NX0423 HDD 1TB, 7.2k RPM, 6Gb/s, 2.5¨ | 1 Tarjeta Mellanox MT27500 (ConnectX-3) |
 
 
 
@@ -68,7 +68,7 @@ características:
 **Nodo de Procesamiento, Dell, PowerEdge C6525**
 | **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
 |----------------|-------------|----------------|--------------------|
-| 2 x AMD EPYC 7513 a 3.9GHz | 512 GB en RAM | DELLBOSS VD HDD, 500 GB | |  
+| 2 x AMD EPYC 7513 a 3.9GHz | 512 GB en RAM | DELLBOSS VD HDD, 500 GB | 1 Tarjeta Mellanox MT28908 (ConnectX-6) |  
 
 
 
