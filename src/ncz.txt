@@ -1099,3 +1099,23 @@ OEM-specific Type
 Handle 0xFEFF, DMI type 127, 4 bytes
 End Of Table
 
+**************************************************
+Informacion disco duro (ncz1)
+
+    $ lsblk -o NAME,MODEL,SIZE,TYPE,ROTA
+        NAME   MODEL              SIZE TYPE ROTA
+        sda    DELLBOSS VD      447.1G disk    1
+        ├─sda1                    100G part    1
+        └─sda2                  347.1G part    1
+
+***************************************************
+nodo tt13 (ttv3)
+
+     $ lsblk -o NAME,MODEL,SIZE,TYPE,ROTA
+        NAME   MODEL              SIZE TYPE ROTA
+        sda    INTEL SSDSC1BG20 186.3G disk    0
+        ├─sda1                    100G part    0
+        └─sda2                   86.3G part    0
+                
+
+***************************************************
