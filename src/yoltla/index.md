@@ -33,8 +33,8 @@ y comunicaciones de alta velocidad Infiniband FDR10/FDR.
     * 1432 núcleos Intel Xeon E5-2683 v4 (2.1 GHz) en 46 nodos, con 
     11.776 TB de RAM distribuida.
     
-- **20__**
-    * 1728 núcleos AMD EPYC 7513 32-Core (2.59 GHz) en 27 nodos, con 
+- **2022**
+    * 1728 núcleos AMD EPYC 7513 32-Core (3.9 GHz) en 27 nodos, con 
     13.5 TB de RAM distribuida.
 
 <!--
