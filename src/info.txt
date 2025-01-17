@@ -169,12 +169,9 @@ Nodos tt(13)
 -------------------------------------
 
 Consultar las particiones del clúster
-
-    $ sinfo -o "%.10P %.6a %.11l %.6D %.5c %N"
+  $ sinfo -o "%.10P %.6a %.11l %.6D %.5c %N"
 
 Buscar una partición dispinible
-
-Para cargar el módulo yoltla/beta, utilice el siguiente comando:
     $ module load yoltla/beta
 
 Posteriormente, para ejecutar la aplicación yoltla_pool, utilice el comando:
@@ -182,25 +179,105 @@ Posteriormente, para ejecutar la aplicación yoltla_pool, utilice el comando:
 
 -------------------------------------
 
-Index
+************************************************************************
+INFORMACION SOBRE EL DISCO duro
 
-    tipo  --> Nodo de cómputo ncz
-    Nombre --> ncz[1-27]
-    catidad --> 27
-    Descripción --> 64 CPUs AMD EPYC 7513 32-Core Processor, 512GB
+    $ lsblk -o NAME,SIZE,MODEL,TYPE,ROTA
+        NAME: Nombre del dispositivo.
+        SIZE: Tamaño del disco.
+        MODEL: Modelo del disco (por ejemplo, "SSD 200 GB").
+        ROTA: Indica si el disco es rotativo (1) o no (0, SSD).
+
+    $ sudo smartctl -i /dev/sdX --> necesita el paquete smartmontools 
+    (sudo pacman -S smartmontools)
+
+    $ sudo hdparm -I /dev/sdX --> Muestra detalles del hardware del disco 
+    (Incluye el modelo, número de serie y características del disco.)
+
+    $ sudo lshw -class disk --> Para obtener una descripción completa del hardware del sistema
+    (Detalla el modelo del disco, tipo de conexión (SATA, SAS, etc.), y características.)
+
+    leer desde sysfs o procfs
+
+    Ver detalles del modelo y tamaño:
+    $ cat /sys/class/block/sdX/device/model
+    $ cat /sys/class/block/sdX/size
+
+    Ver velocidad de rotación:
+    $ cat /sys/class/block/sdX/queue/rotational
+    (Si devuelve 1, es un HDD; si es 0, es un SSD.)
+
+    $ sudo smartctl -i /dev/sdX
+    (Busca en la salida un campo como Rotation Rate o similar.)
+
+    $ sudo hdparm -I /dev/sdX | grep "Nominal Media Rotation Rate"
+    Este comando busca directamente el dato de las RPM.
+
+    $ sudo lshw -class disk | grep -i rpm
+    Algunos discos duros reportan las RPM mediante este comando
+
+************************************************************************
+
+INFORMACION SOBRE LAS COMUNICACIONES
+
+    $ lspci | grep -i mellanox
+    (Este comando muestra todos los dispositivos PCI conectados al sistema, incluidas las tarjetas de red.)
+
+        $ lspci -vvv -d <vendor_id:device_id>
+        (Reemplaza <vendor_id:device_id> con los valores obtenidos de la salida básica de lspci. Por ejemplo, 
+        Mellanox suele tener un vendor ID de 15b3.)
+
+    $ sudo ethtool <interface>
+    (Para consultar detalles sobre las capacidades y configuración de las interfaces de red)
+
+        $ sudo ethtool enp1s0
+        (Esto puede mostrar la velocidad, tipo de puerto (Infiniband o Ethernet), y más.)
+
+    $ ibstat--> Para sistemas con soporte Infiniband, este comando proporciona información 
+    detallada sobre las interfaces.
+    Muestra datos como:
+        Estado del puerto.
+        Velocidades admitidas (FDR, FDR10, etc.).
+        Estado de la conexión.
+
+    $ ip link show --> Este comando te muestra una lista de todas las interfaces de red
+    (Puedes identificar nombres de interfaces Infiniband, como ib0, y luego consultar 
+    detalles con ethtool o ibstat.)
+
+    (Relación entre dispositivos Infiniband y nombres de red)
+    $ ibdev2netdev --> Este comando ayuda a mapear los nombres de dispositivos Infiniband (mlx5_0, etc.) 
+    a nombres de red (ib0, etc.)
+
+    
+    dmesg (Mensajes del kernel)    
+    $ dmesg | grep -i mellanox --> Busca mensajes relacionados con Mellanox o Infiniband al iniciar el sistema
 
 
-    En ____ se agregaron 1728 núcleos de procesamiento tipo 
-    AMD EPYC 7513 32-Core de 2.59 GHz distribuidos en 27 nodos de 
-    procesamiento con 13.5 TB de memoria RAM distribuida.
+    Ubicaciones del sistema de archivos (/sys y /proc)
+    Puedes explorar información adicional sobre interfaces en los directorios del sistema
 
-Hardware
+    Información de dispositivos
+    $ cat /sys/class/infiniband/*/device/vendor
+    $ cat /sys/class/infiniband/*/device/device
 
-    Nodo de cómputo AMD EPYC 7513 32-Core (nodos ncz)
+    Estado y velocidades de los puertos
+    $ cat /sys/class/infiniband/*/ports/1/state
+    $ cat /sys/class/infiniband/*/ports/1/rate
 
-    procesador --> * x AMD EPYC 7513 32-Core a 2.59 GHz
-    memoria --> 512 GB en RAM
-    disco duro --> 
-    comunicaciones --> 
 
-nd
+    Comando combinado para un resumen rápido:
+    $ lspci | grep -i mellanox; ibstat; ip link show; ibdev2netdev
+
+
+
+
+
+
+
+
+
+
+
+
+
+

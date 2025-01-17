@@ -61,7 +61,7 @@ El sistema operativo instalado en Yoltla está basado en Linux Enterprise
 | Nodo de cómputo nvg | ngv[1-3] | 3 | 36 CPUs Intel Xeon Gold 6140, 128GB RAM  |
 | Nodo de cómputo tt | tt[1-58] | 58 | 20 CPUs Intel Xenón E5-2660v3, 128GB RAM | 
 | Nodo de cómputo tt | tt[59-96] | 38 | 32 CPUs Intel Xenón E5-2660v4, 128GB RAM | 
-| Nodo de cómputo ncz | ncz[1-27] | 27 | 64 CPUs AMD EPYC 7513 32-Core, 512GB RAM |
+| Nodo de cómputo ncz | ncz[1-27] | 27 | 64 CPUs AMD EPYC 7513, 512GB RAM |
 
 
 

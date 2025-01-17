@@ -68,7 +68,7 @@ características:
 **Nodo de Procesamiento, Dell, PowerEdge C6525**
 | **Procesador** | **Memoria** | **Disco Duro** | **Comunicaciones** |
 |----------------|-------------|----------------|--------------------|
-| 2 x AMD EPYC 7513 a 3.9GHz | 512 GB en RAM | HDD DELLBOSS VD 450 GB | |  
+| 2 x AMD EPYC 7513 a 3.9GHz | 512 GB en RAM |  | |  
 
 
 
