@@ -12,9 +12,9 @@ Para consultar en que nodo se está ejecutando un trabajo utilice el comando `sq
 Por ejemplo, para consultar en que nodo se está ejecutando el trabajo con ID 817543, 
 ejecute el comando:
 ```
-    [pepe@yoltla0 ~]$  squeue -j 817543
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-            817543   q1h-20p script_g     pepe  R      10:15      1 nc87
+[pepe@yoltla0 ~]$  squeue -j 817543
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+    817543   q1h-20p script_g     pepe  R      10:15      1 nc87
 ```
 
 En este caso, el trabajo con ID 817543 se está ejecutando en el nodo nc87.
@@ -27,7 +27,7 @@ Si un trabajo utiliza MPI, es posible que se esté ejecutando en varios nodos.
 
 Para conectarse a un nodo, utilice el comando `ssh` seguido del nombre del nodo:
 ```
-    ssh <nombre del nodo>
+ssh <nombre del nodo>
 ```
 
 ```admonish note title="NOTA"
@@ -51,7 +51,7 @@ Es posible que en algunos casos se le solicite su contraseña para tener acceso 
 Para monitorear un trabajo, utilice el comando `htop` seguido de la opción `-u` y su 
 nombre de usuario:
 ```
-    htop -u <nombre de usuario>
+htop -u <nombre de usuario>
 ```
 
 ```admonish note title="NOTA"
@@ -60,7 +60,7 @@ Recuerde que debe estar conectado al nodo en que se está ejecutando su trabajo.
 
 Por ejemplo, para el usuario pepe, el comando correspondiente es el siguiente:
 ```
-    [pepe@nc87 ~]$ htop -u pepe
+[pepe@nc87 ~]$ htop -u pepe
 ```
 
 Después de ejecutar este comando, el aspecto de la terminal cambiará al que se muestra 
@@ -87,7 +87,7 @@ Si necesita soporte adicional, envíe un correo a <soporte.lsvp@gmail.com>.
 
 Para desconectarse de un nodo, ejecute el comando:
 ```
-    exit
+exit
 ```
 
 En nuestro ejemplo, al desconectarnos del nodo nc87, obtenemos la siguiente salida:

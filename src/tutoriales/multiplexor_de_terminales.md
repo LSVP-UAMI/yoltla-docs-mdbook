@@ -8,7 +8,7 @@ Es útil para realizar muchas tareas al mismo tiempo sin tener que crear mas de 
 Para utilizar `tmux` es necesario cargar su módulo correspondiente. 
 Utilice el comando:
 ```
-    module load tools/tmux/2.0
+module load tools/tmux/2.0
 ```
 
 para cargar la aplicación tmux.
@@ -17,7 +17,7 @@ para cargar la aplicación tmux.
 
 Para crear una sesión en tmux, utilice el siguiente comando:
 ```
-    tmux new-session
+tmux new-session
 ```
 
 El aspecto de la terminal cambiará al siguiente:
@@ -38,10 +38,10 @@ de estado. En la línea de estado se muestran los siguientes elementos:
 
 ```admonish note title="NOTA"
 De forma predeterminada, tmux le asigna un nombre a cada sesión, la primera sesión se 
-llamará *0*, la segunda *1* y así sucesivamente. Puede especificar un nombre para la 
+llamará `0`, la segunda `1` y así sucesivamente. Puede especificar un nombre para la 
 sesión utilizando la opción `-s`:
 
-        tmux new-session -s <nombre de la sesión>
+    tmux new-session -s <nombre de la sesión>
 ```
 
 ## Crear una ventana
@@ -159,19 +159,19 @@ Por ejemplo, al desconectarse de la sesión con nombre *aplicaciones*, se muestr
 
 Para conectarse a una sesión, utilice el siguiente comando:
 ```
-    tmux attach -t <nombre de la sesión>
+tmux attach -t <nombre de la sesión>
 ```
 
 Por ejemplo, para conectarse a la sesión *aplicaciones*, ejecute el comando:
 ```
-    [pepe@yoltla0 ~]$ tmux attach -t aplicaciones
+[pepe@yoltla0 ~]$ tmux attach -t aplicaciones
 ```
 
 ## Listar las sesiones
 
 Para obtener un listado de todas las sesiones disponibles, utilice el comando:
 ```
-    tmux ls
+tmux ls
 ```
 Por ejemplo, el usuario pepe tiene las siguientes sesiones disponibles:
 ```
@@ -185,12 +185,12 @@ simulacion: 3 windows (created Mon Jun 8 18:00:06 2021)
 
 Para eliminar una sesión, utilice el comando:
 ```
-    tmux kill-session -t <nombre de la sesión>
+tmux kill-session -t <nombre de la sesión>
 ```
 
 Por ejemplo, para eliminar la sesión *prueba*, ejecute el comando:
 ```
-    [pepe@yoltla0 ~]$ tmux kill-session prueba
+[pepe@yoltla0 ~]$ tmux kill-session prueba
 ```
 
 Al utilizar este comando no obtendrá ningún mensaje por parte del sistema.

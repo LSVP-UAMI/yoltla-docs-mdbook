@@ -41,13 +41,13 @@ uso de la aplicación LAMMPS:
 
 Para cargar la aplicación `LAMMPS`, utilice el siguiente comando:
 ```
-    module load <módulo>
+module load <módulo>
 ```
 
-Por ejemplo, para cargar el modulo *lammps/2019/08/lmp-gpu*, ejecute el
+Por ejemplo, para cargar el modulo `lammps/2019/08/lmp-gpu`, ejecute el
 comando:
 ```
-    module load lammps/2019/08/lmp-gpu
+module load lammps/2019/08/lmp-gpu
 ```
 ## Archivo de entrada
 
@@ -181,7 +181,7 @@ templado paralelo (réplica-intercambio) utilizando el comando `temper`.
 
 ### CPU
 ```
-    mpiexec.hydra -bootstrap slurm -np 20 lammps -in lammps.input
+mpiexec.hydra -bootstrap slurm -np 20 lammps -in lammps.input
 ```
 
 | <!----> | <!----> |
@@ -193,7 +193,7 @@ templado paralelo (réplica-intercambio) utilizando el comando `temper`.
 
 ### GPU
 ```
-    mpiexec.hydra -bootstrap slurm -np 20 lmp_mpi-gpu -sf gpu -pk gpu 1 -in lammps.input
+mpiexec.hydra -bootstrap slurm -np 20 lmp_mpi-gpu -sf gpu -pk gpu 1 -in lammps.input
 ```
 
 | <!----> | <!----> |
@@ -213,7 +213,7 @@ Mas información del comando `-pk`
 Puede encontrar scripts de ejemplo de la aplicación LAMMPS en el
 siguiente directorio:
 ```
-    /LUSTRE/scripts_ejemplo/Lammps
+/LUSTRE/scripts_ejemplo/Lammps
 ```
 
 ## Errores frecuentes

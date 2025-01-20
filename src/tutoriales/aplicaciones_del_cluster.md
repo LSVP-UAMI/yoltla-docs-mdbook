@@ -9,7 +9,7 @@ la ejecución, compilación y uso de múltiples versiones de aplicaciones.
 
 Para listar los módulos del clúster, utilice el comando `module` seguido del subcomando `avail`:
 ```
-    module avail
+module avail
 ```
 A continuación se muestra de manera parcial la salida de este comando:
 ```
@@ -51,14 +51,14 @@ Para hacer uso de los módulos del clúster es necesario cargarlos.
 Para cargar un módulo, utilice el comando `module` seguido del subcomando `load` y el 
 nombre del módulo a cargar:
 ```
-    module load <módulo>
+module load <módulo>
 ```
 
 Al utilizar este comando no obtendrá ningún mensaje por parte del sistema.
 
 Por ejemplo, para cargar el modulo *intel/impi-2017u4*, ejecute el comando:
 ```
-    [pepe@yoltla0 ~]$ module load intel/impi-2017u4
+[pepe@yoltla0 ~]$ module load intel/impi-2017u4
 ```
 
 ```admonish note title="NOTA"
@@ -85,7 +85,7 @@ posteriormente cargue el nuevo módulo:
 
 Para listar todos los módulos cargados, utilice el comando `module` seguido del subcomando `list`:
 ```
-    module list
+module list
 ```
 Por ejemplo, el usuario pepe tiene cargados los siguientes módulos:
 ```
@@ -99,7 +99,7 @@ Currently Loaded Modulefiles:
 ```admonish note title="NOTA"
 En caso de no tener módulos cargados obtendrá el siguiente mensaje por parte del sistema:
 
-        No Modulefiles Currently Loaded.
+    No Modulefiles Currently Loaded.
 ```
 
 ## Descargar un módulo
@@ -107,13 +107,13 @@ En caso de no tener módulos cargados obtendrá el siguiente mensaje por parte d
 Para descarga un módulo, utilice el comando `module` seguido del subcomando `unload` y 
 el nombre del módulo a descargar:
 ```
-    module unload <módulo>
+module unload <módulo>
 ```
 Al utilizar este comando no obtendrá ningún mensaje por parte del sistema.
 
 Por ejemplo, para descargar el módulo *intel/impi-2017u4*, ejecute el comando:
 ```
-    [pepe@yoltla0 ~]$ module unload intel/impi-2017u4
+[pepe@yoltla0 ~]$ module unload intel/impi-2017u4
 ```
 
 ## Descargar todos los módulos cargados
@@ -121,7 +121,7 @@ Por ejemplo, para descargar el módulo *intel/impi-2017u4*, ejecute el comando:
 Para descargar todos los módulos cargados, utilice el comando `module` seguido del 
 subcomando `purge`:
 ```
-    module purge
+module purge
 ```
 
 Al utilizar este comando no obtendrá ningún mensaje por parte del sistema.
@@ -137,7 +137,7 @@ Currently Loaded Modulefiles:
 
 Al ejecutar el comando:
 ```
-    [pepe@yoltla0 ~]$ module purge
+[pepe@yoltla0 ~]$ module purge
 ```
 
 Y volver a comprobar los módulos cargados, se obtiene el siguiente mensaje:

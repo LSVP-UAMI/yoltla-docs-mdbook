@@ -10,7 +10,7 @@ funcionamiento de las aplicaciones instaladas en Yoltla, además facilita
 Por ejemplo, para hacer uso de los compiladores y herramientas de intel, 
 ejecute el comando:
 ```
-    [pepe@yoltla0 ~]$ module load intel/compilers-2017u4
+[pepe@yoltla0 ~]$ module load intel/compilers-2017u4
 ```
 
 Para obtener más información acerca de las aplicaciones disponibles en el 
@@ -20,8 +20,8 @@ clúster y su uso, consulte la sección [¿Cómo utilizo las aplicaciones del cl
 
 ### Compiladores
 
-| **Compiladores/<br>Interpretes** | **Versiones** | <!----> | <!----> | <!----> |
-|----------------------------------|---------------|---------|---------|---------|
+| **Compiladores/<br>Interpretes** | <!----> | **Versiones** | <!----> | <!----> |
+|----------------------------------|---------|---------------|---------|---------|
 | cuda | 5.0 | 5.5 | 6.0 | 6.5 |
 | cuda | 7.0 | 7.5 | 8.0 | 9.0 |
 |cuda | 10.2 | 
@@ -39,8 +39,8 @@ clúster y su uso, consulte la sección [¿Cómo utilizo las aplicaciones del cl
 
 ### MPIs
 
-| **MPIs** | **Versiones** | <!----> | <!----> | <!----> |
-|----------|---------------|---------|---------|---------|
+| **MPIs** | <!----> | **Versiones** | <!----> | <!----> |
+|----------|---------|---------------|---------|---------|
 | openmpi |1.8.4 | 2.0.2 | 2.1.5 | 3.1.4 |
 | hpcx-mpi | 2.13 |
 | intel impi | 5.0.3.048 | 5.0.3.49 | 5.1.3 | 2017u4 |
@@ -48,8 +48,8 @@ clúster y su uso, consulte la sección [¿Cómo utilizo las aplicaciones del cl
 
 ### Aplicaciones
 
-| **Aplicaciones** | **Versiones** | <!----> | <!----> | <!----> |
-|------------------|---------------|---------|---------|---------|
+| **Aplicaciones** | <!----> | **Versiones** | <!----> | <!----> |
+|------------------|---------|---------------|---------|---------|
 | abinit | 8.4.1 | 9.6.2 |
 | amber | ambertools19 |
 | anaconda | 2021.04 | 2023.03 |

@@ -52,12 +52,12 @@ nodo:
 
 Para cargar la aplicación `Gaussian`, utilice el siguiente comando:
 ```
-    module load <módulo>
+module load <módulo>
 ```
 
-Por ejemplo, para cargar el modulo *gaussian/09*, ejecute el comando:
+Por ejemplo, para cargar el modulo `gaussian/09`, ejecute el comando:
 ```
-    module load gaussian/09
+module load gaussian/09
 ```
 
 ## Archivos de entrada
@@ -143,7 +143,7 @@ palabras clave asociadas a cada una de ellas.
 Para utilizar todos los procesadores de la partición, debe agregar el
 comando Link 0:
 
-        %nprocshared=20
+    %nprocshared=20
 
 al archivo de entrada de Gaussian.
 ```
@@ -156,18 +156,18 @@ Overview](http://wild.life.nctu.edu.tw/~jsyu/compchem/g09/g09ur/m_input.htm).
 A continuación se presenta un ejemplo de un archivo de entrada de
 Gaussian:
 
-        %Chk=heavy                      Sección Link 0
-        # HF/6-31G(d) Opt=ModRedundant  Sección de Ruta
+    %Chk=heavy                      Sección Link 0
+    # HF/6-31G(d) Opt=ModRedundant  Sección de Ruta
 
-        Opt job                         Sección de Título
+    Opt job                         Sección de Título
 
-        0   1                           Sección de especificación de Molécula
-        O  -0.464   0.177   0.0
-        H  -0.464   1.137   0.0
-        H   0.441  -0.143   0.0
-                                        Secciones adicionales opcionales
-        3 8                             Agrega un enlace y un ángulo a las coordenadas internas
-        2 1 3                           Coordenadas usadas durante la optimización de energía
+    0   1                           Sección de especificación de Molécula
+    O  -0.464   0.177   0.0
+    H  -0.464   1.137   0.0
+    H   0.441  -0.143   0.0
+                                    Secciones adicionales opcionales
+    3 8                             Agrega un enlace y un ángulo a las coordenadas internas
+    2 1 3                           Coordenadas usadas durante la optimización de energía
 
 Este trabajo solicita una optimización de geometría. La sección de
 entrada que sigue a la especificación de la molécula es utilizada por la
@@ -180,7 +180,7 @@ optimización de la geometría.
 Puede encontrar scripts de ejemplo de la aplicación Gaussian en el
 siguiente directorio:
 ```
-    /LUSTRE/scripts_ejemplo/Gaussian
+/LUSTRE/scripts_ejemplo/Gaussian
 ```
 
 ## Errores frecuentes

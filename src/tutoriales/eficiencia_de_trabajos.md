@@ -5,7 +5,7 @@
 Puede consultar el informe de eficiencia de un trabajo con el comando `seff` seguido 
 del ID del trabajo:
 ```
-    seff <ID del trabajo>
+seff <ID del trabajo>
 ```
 
 ```admonish note title="NOTA"

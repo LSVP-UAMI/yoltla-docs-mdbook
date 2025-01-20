@@ -24,7 +24,7 @@ y Windows.
 
 Desde la terminal ejecute el comando:
 ```
-    ssh -l <nombre de usuario> <dirección IP del nodo de acceso>
+ssh -l <nombre de usuario> <dirección IP del nodo de acceso>
 ```
 
 ```admonish note title="NOTA"
@@ -33,7 +33,7 @@ Opción `-l` (letra ele minúscula).
 
 Otra forma de realizar la conexión es utilizando la notación usuario@maquina:
 ```
-    ssh <nombre usuario>@<dirección IP del nodo de acceso>
+ssh <nombre usuario>@<dirección IP del nodo de acceso>
 ```
 
 ><center>

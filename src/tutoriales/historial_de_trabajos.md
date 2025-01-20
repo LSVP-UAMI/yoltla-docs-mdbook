@@ -4,19 +4,19 @@
 
 Para consultar su historial de trabajos, utilice el siguiente comando:
 ```
-    sacct
+sacct
 ```
 
 A continuación se muestra un ejemplo de la salida del comando `sacct`:
 ```
-    [pepe@yoltla0 ~]$ sacct
-        JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
-    ------------ ---------- ---------- ---------- ---------- ---------- --------
-    817539       prueba_ga+    q1d-20p       pepe         20     FAILED      1:0 
-    817539.batch      batch                  pepe         20     FAILED      1:0
-    817540       prueba_ga+    q1d-20p       pepe         20     FAILED      1:0 
-    817540.batch      batch                  pepe         20     FAILED      1:0
-    817543       script_ga+    q1h-20p       pepe         20    RUNNING      0:0 
+[pepe@yoltla0 ~]$ sacct
+    JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
+------------ ---------- ---------- ---------- ---------- ---------- --------
+817539       prueba_ga+    q1d-20p       pepe         20     FAILED      1:0 
+817539.batch      batch                  pepe         20     FAILED      1:0
+817540       prueba_ga+    q1d-20p       pepe         20     FAILED      1:0 
+817540.batch      batch                  pepe         20     FAILED      1:0
+817543       script_ga+    q1h-20p       pepe         20    RUNNING      0:0 
 
 ```
 
@@ -65,11 +65,11 @@ Por ejemplo, para consultar todos los trabajos cuyo nombre sea
 enviados entre el *01/04/2021* y el *01/05/2021*, ejecute el comando:
 ```
 [pepe@yoltla0 ~]$ sacct -X --name=simulacion --state=COMPLETED,FAILED --starttime=2021-04-01 --endtime=2021-05-01
-        JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
------------- ---------- ---------- ---------- ---------- ---------- --------
-776552       simulacion    q1h-20p       pepe         20     FAILED      2:0
-787047       simulacion    q1h-20p       pepe         20  COMPLETED      0:0
-790569       simulacion    q1h-20p       pepe         20  COMPLETED      0:0
+            JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
+    ------------ ---------- ---------- ---------- ---------- ---------- --------
+    776552       simulacion    q1h-20p       pepe         20     FAILED      2:0
+    787047       simulacion    q1h-20p       pepe         20  COMPLETED      0:0
+    790569       simulacion    q1h-20p       pepe         20  COMPLETED      0:0
 ```
 
 ## Dar formato al historial de trabajos
@@ -79,7 +79,7 @@ que se muestra esta información. Utilice la opción `--format` para indicar que
 (ver sección [Job Accounting Fields](../anexos/anexos.md#job-accounting-fields)) desea 
 que se desplieguen en la salida del comando `sacct`:
 ```
-    sacct --format=<lista de campos>
+sacct --format=<lista de campos>
 ```
 
 ```admonish tip title="TIP"
@@ -94,9 +94,9 @@ sus trabajos del día actual, que se encuentran en estado *RUNNING*, ejecute el 
 
 ```
 [pepe@yoltla0 ~]$  sacct -X --format=JobID,JobName,State,NodeList --state=RUNNING
-    JobID    JobName      State        NodeList
------------- ---------- ---------- ---------------
-817543       script_ga+    RUNNING            nc87
+        JobID    JobName      State        NodeList
+    ------------ ---------- ---------- ---------------
+    817543       script_ga+    RUNNING            nc87
 ```
 
 Para obtener más información de este comando, consulte la página [sacct](https://slurm.schedmd.com/sacct.html) 

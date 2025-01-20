@@ -123,12 +123,12 @@ Los siguientes módulos de GROMACS pueden trabajar con PLUMED:
 
 Para cargar la aplicación  `GROMACS`, utilice el siguiente comando:
 ```
-    module load <módulo>
+module load <módulo>
 ```
 
-Por ejemplo, para cargar el modulo *gromacs/2019.2*, ejecute el comando:
+Por ejemplo, para cargar el modulo `gromacs/2019.2`, ejecute el comando:
 ```
-    module load gromacs/2019.2
+module load gromacs/2019.2
 ```
 
 ## Archivos de entrada
@@ -197,7 +197,7 @@ de la documentación oficial de GROMACS.
 Puede encontrar scripts de ejemplo de la aplicación GROMACS en el
 siguiente directorio:
 ```
-    /LUSTRE/scripts_ejemplo/Gromacs
+/LUSTRE/scripts_ejemplo/Gromacs
 ```
 
 ## Errores frecuentes
@@ -228,7 +228,7 @@ GROMACS es software libre, disponible bajo la GNU Lesser General Public
 License (LGPL), versión 2.1.
 
 Para obtener más información, consulte la página [About
-GROMACS](http://www.gromacs.org/About_Gromacs).
+GROMACS](http://www.gromacs.org/about).
 
 ## Referencias
 
