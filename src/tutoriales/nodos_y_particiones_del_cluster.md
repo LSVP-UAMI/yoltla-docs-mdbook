@@ -8,7 +8,7 @@ número de CPUs que pueden utilizarse.
 
 Para consultar las particiones disponibles en el clúster, utilice el siguiente comando:
 ```
-    sinfo -o "%.10P %.6a %.11l %.6D %.5c %N"
+sinfo -o "%.10P %.6a %.11l %.6D %.5c %N"
 ```
 
 A continuación se muestra de manera parcial la salida de este comando:
@@ -51,12 +51,12 @@ del módulo *yoltla/beta*.
 
 Para cargar el módulo *yoltla/beta*, utilice el siguiente comando:
 ```
-    module load yoltla/beta
+module load yoltla/beta
 ```
 
 Posteriormente, para ejecutar la aplicación `yoltla_pool`, utilice el comando:
 ```
-    yoltla_pool
+yoltla_pool
 ```
 
 A continuación se da un ejemplo de la salida de este comando:

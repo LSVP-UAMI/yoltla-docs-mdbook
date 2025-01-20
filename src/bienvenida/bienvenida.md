@@ -21,14 +21,14 @@ rendimiento y aprovechar al máximo los recursos computacionales disponibles.
 -->
 Ya seas nuevo en el uso de clústeres o necesites profundizar en temas avanzados, 
 esta página te servirá como tu principal recurso para una gestión óptima y 
-productiva de tu trabajo en el clúster universitario.
+productiva de tu trabajo en el clúster.
 
 
 ## Primeros Pasos
 
-* [Acceso al clúster](../guia_usuario/tutoriales.md#acceso-al-clúster)
-* [Nodos y particiones del clúster](../guia_usuario/tutoriales.md#nodos-y-particiones-del-clúster)
-* [Envío y administración de trabajos (scripts)](../guia_usuario/tutoriales.md#envío-y-administración-de-trabajos) 
+* [Acceso al clúster](../tutoriales/acceso_al_cluster.md)
+* [Nodos y particiones del clúster](../tutoriales/nodos_y_particiones_del_cluster.md)
+* [Envío y administración de trabajos (scripts)](../tutoriales/envio_y_administracion_de_trabajos.md) 
 
 
 ## Aplicaciones en el clúster Yoltla

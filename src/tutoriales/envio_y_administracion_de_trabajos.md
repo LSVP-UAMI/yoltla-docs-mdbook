@@ -4,7 +4,7 @@
 
 Para enviar un trabajo, utilice el comando `sbatch` seguido del nombre de su script:
 ```
-    sbatch <nombre del script>
+sbatch <nombre del script>
 ```
 
 Por ejemplo, para enviar el script _hola_mundo.slrm_, ejecute el comando:
@@ -24,7 +24,7 @@ de la documentación oficial de SLURM.
 Para consultar un trabajo en el clúster, utilice el comando `squeue` seguido de la opción 
 `-j` y el ID de su trabajo:
 ```
-    squeue -j <ID del trabajo>
+squeue -j <ID del trabajo>
 ```
 
 ```admonish tip title="TIP"
@@ -43,8 +43,8 @@ Para consultar todos sus trabajos, utilice el comando `squeue` seguido de la opc
 Por ejemplo, para consultar el trabajo con ID 786836, ejecute el comando:
 ```
 [pepe@yoltla0 ~]$ squeue -j 786836
-            JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-            786836   q1h-20p ley_coul     pepe PD       0:00      1 (Resources)
+    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+    786836   q1h-20p ley_coul     pepe PD       0:00      1 (Resources)
 ```
 
 En la siguiente tabla se da una descripción de los campos que conforman la salida anterior:
@@ -82,7 +82,7 @@ de la documentación oficial de SLURM.
 
 Para cancelar un trabajo, utilice el comando `scancel` seguido del ID del trabajo:
 ```
-    scancel <ID del trabajo>
+scancel <ID del trabajo>
 ```
 Al utilizar el comando `scancel` no obtendrá ningún mensaje por parte del sistema.
 
