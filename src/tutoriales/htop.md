@@ -7,7 +7,7 @@ htop es un visor de procesos interactivo.
 Para iniciar la aplicación htop, utilice el comando `htop` seguido de la opción `-u` y 
 su nombre de usuario:
 ``` bash
-    htop -u <nombre de usuario>
+htop -u <nombre de usuario>
 ```
 
 ```admonish note title="NOTA"
@@ -41,7 +41,7 @@ En esta sección se encuentra resumen de los recursos del sistema y de su uso.
 
 A continuación se da una descripción de los elementos que conforman esta sección:
 
--   En la parte superior se encuentran varias barras numeradas del 1 al n, las cuales 
+-   En la parte superior se encuentran varias barras numeradas del `1` a `n`, las cuales 
     representan las CPUs del sistema y su carga.
 
 -   En la parte inferior izquierda se encuentran dos barras con las palabras `Mem` y `Swp`, 

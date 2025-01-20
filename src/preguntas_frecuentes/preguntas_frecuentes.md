@@ -4,7 +4,7 @@
 
 ### ¿Qué es SLURM?
 
-Es un sistema de codigo abierto para manejar recursos dw clusters. Es
+Es un sistema de código abierto para manejar recursos de clústeres. Es
 tolerante a fallas y es altamente escalable para clústeres de Linux
 grandes y pequeños.
 
@@ -24,7 +24,7 @@ periodo de tiempo.
 
 Utilice el comando `sbatch` seguido del nombre de su script:
 ``` 
-    sbatch <nombre del script>
+sbatch <nombre del script>
 ```
 
 Para obtener más información, consulte la sección 
@@ -35,7 +35,7 @@ Para obtener más información, consulte la sección
 Utilice el comando `squeue` seguido de la opción `-j` y el ID de su
 trabajo:
 ```
-    squeue -j <ID del trabajo>
+squeue -j <ID del trabajo>
 ```
 
 Para obtener más información, consulte la sección 
@@ -45,7 +45,7 @@ Para obtener más información, consulte la sección
 
 Utilice el comando `scancel` seguido del ID de su trabajo:
 ```
-    scancel <ID del trabajo>
+scancel <ID del trabajo>
 ```
 
 Para obtener más información, consulte la sección 
@@ -75,7 +75,7 @@ shell para una aplicación.
 
 Utilice el comando `module` seguido del subcomando `avail`:
 ```
-    module avail
+module avail
 ```
 
 Para obtener más información, consulte la sección 
@@ -86,7 +86,7 @@ Para obtener más información, consulte la sección
 Utilice el comando `module` seguido del subcomando `load` y el nombre
 del módulo a cargar:
 ```
-    module load <módulo>
+module load <módulo>
 ```
 
 Para obtener más información, consulte la sección 
@@ -96,7 +96,7 @@ Para obtener más información, consulte la sección
 
 Utilice el comando `module` seguido del subcomando `list`:
 ```
-    module list
+module list
 ```
 
 Para obtener más información, consulte la sección 
@@ -107,7 +107,7 @@ Para obtener más información, consulte la sección
 Utilice el comando `module` seguido del subcomando `unload` y el nombre
 del módulo a descargar:
 ```
-    module unload <módulo>
+module unload <módulo>
 ```
 
 Para obtener más información, consulte la sección 
@@ -117,7 +117,7 @@ Para obtener más información, consulte la sección
 
 Utilice el comando `module` seguido del subcomando `purge`:
 ```
-    module purge
+module purge
 ```
 
 Para obtener más información, consulte la sección 

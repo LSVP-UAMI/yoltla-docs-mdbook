@@ -47,9 +47,9 @@ de la documentación oficial de SLURM.
 ## Buscar una partición disponible
 
 Para buscar una partición disponible en el clúster, utilice la aplicación `yoltla_pool` 
-del módulo *yoltla/beta*. 
+del módulo `yoltla/beta`. 
 
-Para cargar el módulo *yoltla/beta*, utilice el siguiente comando:
+Para cargar el módulo `yoltla/beta`, utilice el siguiente comando:
 ```
 module load yoltla/beta
 ```
