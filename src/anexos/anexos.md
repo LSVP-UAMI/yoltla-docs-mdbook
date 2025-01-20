@@ -9,7 +9,7 @@ utilizando hasta 80 CPUs.
 
 ***Tabla 1. Particiones en el clúster Yoltla***
 
-| **Nombre de la particion** | **Tiempo máximo** | **Formato simplificado y extenso de SLURM** | **Número de CPUs** | **Tipo de nodo** |
+| **Nombre de la partición** | **Tiempo máximo** | **Formato simplificado y extenso de SLURM** | **Número de CPUs** | **Tipo de nodo** |
 |----------------------------|-------------------|---------------------------------------------|--------------------|------------------|
 | q1h-20p     | 1 hora      | 0-1  / 1:00:00       | 20              | 1x nc       |
 | q1d-20p     | 1 día       | 1-0  / 1-00:00:00    | 20              | 1x nc       |
