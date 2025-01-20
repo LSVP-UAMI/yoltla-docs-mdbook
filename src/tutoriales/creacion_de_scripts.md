@@ -5,7 +5,7 @@
 *Figura 1. Diagrama de la configuración y funcionamiento del clúster Yoltla*
 </center>
 
-Para utilizar los recursos del cluster Yoltla se debe mandar un script de SLURM.
+Para utilizar los recursos del clúster Yoltla se debe mandar un script de SLURM.
 
 Un script de SLURM consta de dos partes: directivas SLURM y comandos.
 
@@ -32,7 +32,7 @@ Las principales directivas para SLURM son:
 ```admonish warning title="IMPORTANTE"
 Sólo utilice la directiva:
     
-        --cpus-per-task=#
+    --cpus-per-task=#
     
 cuando trabaje con programas de memoria compartida (OpenMP).
 ```
@@ -45,18 +45,18 @@ A continuación se presenta un ejemplo de un script:
 
 ***hola_mundo.slrm***
 ```
-#!/bin/bash
-#SBATCH --job-name=hola_mundo
-#SBATCH --output=salida_%j.out
-#SBATCH --error=error_%j.err
-#SBATCH --partition=q1h-20p
-#SBATCH --time=0-00:00:10
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=20
-#SBATCH --mail-user=pepe@host.com
-#SBATCH --mail-type=all
+    #!/bin/bash
+    #SBATCH --job-name=hola_mundo
+    #SBATCH --output=salida_%j.out
+    #SBATCH --error=error_%j.err
+    #SBATCH --partition=q1h-20p
+    #SBATCH --time=0-00:00:10
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=20
+    #SBATCH --mail-user=pepe@host.com
+    #SBATCH --mail-type=all
 
-srun echo "Hola Mundo!"
+    srun echo "Hola Mundo!"
 ```
 
 Si desea ver más ejemplos, consulte la sección 

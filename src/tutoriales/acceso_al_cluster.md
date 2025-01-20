@@ -269,34 +269,34 @@ Para ejecutar _Windows PowerShell_, siga los siguientes pasos:
 
     En esta ventana usted debe realizar la conexión al clúster.
 
-
-**Ejemplo: Conexión al clúster Yoltla**
-
-Conexión al nodo de acceso yoltla0 con el usuario pepe:
-```
-    PS C:\Users\Jose\> ssh -l pepe 148.206.50.61
-```
-
-Una vez que se ha establecido la conexión, el sistema le solicitará su contraseña:
-```
-    PS C:\Users\Jose\> ssh -l pepe 148.206.50.61
-
-    pepe@148.206.50.61's password:
-```
-
-Si la contraseña proporcionada es correcta, se mostrará la pantalla de bienvenida de Yoltla:
-
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-                    ** Welcome to Supercomputer ***
-                    __   _____  _   _____ _        _
-                    \ \ / / _ \| | |_   _| |      / \
-                     \ V / | | | |   | | | |     / _ \
-                      | || |_| | |___| | | |___ / ___ \
-                      |_| \___/|_____|_| |_____/_/   \_\
-
-    ####################################################################
-
+><center>
+>
+>**Ejemplo: Conexión al clúster Yoltla**
+></center>
+>
+>Conexión al nodo de acceso yoltla0 con el usuario pepe:
+>```
+>    PS C:\Users\Jose\> ssh -l pepe 148.206.50.61
+>```
+>
+>Una vez que se ha establecido la conexión, el sistema le solicitará su contraseña:
+>```
+>    PS C:\Users\Jose\> ssh -l pepe 148.206.50.61
+>
+>    pepe@148.206.50.61's password:
+>```
+>
+>     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+>
+>                    ** Welcome to Supercomputer ***
+>                    __   _____  _   _____ _        _
+>                    \ \ / / _ \| | |_   _| |      / \
+>                     \ V / | | | |   | | | |     / _ \
+>                      | || |_| | |___| | | |___ / ___ \
+>                      |_| \___/|_____|_| |_____/_/   \_\
+>
+>     ############################################################################
+>
 ```admonish note title="NOTA"
 La primera vez que se conecte al clúster se le mostrará el siguiente mensaje:
 
