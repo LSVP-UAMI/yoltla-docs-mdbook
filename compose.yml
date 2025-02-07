@@ -5,7 +5,7 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - 3000:3000
+      - 3034:3000
       - 3001:3001
     volumes:
       - ${PWD}:/book
