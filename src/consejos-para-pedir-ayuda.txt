@@ -1,0 +1,159 @@
+Cómo escribir buenas solicitudes de soporte
+
+... escrito por y desde la perspectiva de los administradores de HPC.
+
+Redactar buenas solicitudes de soporte no solo es bueno para el equipo de
+soporte, sino también para usted. Debido a que los equipos de administradores 
+tienen muchas solicitudes de ayuda, el tiempo para comprender cada problema 
+es escaso. Cuanto más fácil sea comprender el suyo, más rápido lo resolveremos.
+
+A continuación, se incluye una lista de buenas prácticas.
+-------------------------------
+
+Nunca envíe solicitudes de soporte directamente a los miembros del personal
+
+Envíelas siempre a la dirección de correo del equipo o del sistema de tickets 
+correspondiente, y los miembros del personal las recogerán allí. Algunos 
+miembros del personal pueden trabajar en la línea de soporte solo a tiempo 
+parcial. Enviar la solicitud a la dirección principal garantiza que alguien
+la recogerá.
+-------------------------------
+
+No nos maltrate como simples asistentes que dicen "Déjame buscar eso en 
+Google por ti"
+
+En serio: ¿ha buscado en Internet el mensaje de error exacto y el nombre 
+de su aplicación...? Es posible que otros científicos hayan tenido el mismo 
+problema y hayan podido resolverlo con éxito. Por cierto: casi siempre es 
+así como empezamos a investigar también…
+--------------------------------------
+
+Dale un asunto descriptivo
+
+Tu línea de asunto debe ser descriptiva. “Problema en Cluster” no es una
+buena línea de asunto ya que podría ser válida para básicamente todos los 
+correos electrónicos de soporte que recibimos. El personal de soporte es 
+un equipo. Los asuntos son lo primero que vemos. Nos gustaría poder 
+clasificar los correos electrónicos según los asuntos incluso antes de 
+abrir el correo electrónico.
+---------------------------------------
+
+Incluye comandos reales y mensajes de error
+
+Cubrimos esto a continuación, pero es tan importante que también debe 
+mencionarse en la parte superior: incluye el comando real que ejecutas y 
+los mensajes de error reales. Copia y pega. Si no incluyes esto, nos 
+molestaremos un poco y te lo pediremos de inmediato.
+
+¡Por favor, no tomes capturas de pantalla de tu terminal ssh y nos envíes
+imágenes (jpg, png, tiff…) de lo que viste en tu monitor! A partir de 
+estos, no podríamos cortar y pegar comandos o mensajes de error, lo que 
+ralentizaría innecesariamente nuestra investigación sobre su problema. Su
+salida de muestra no necesita en absoluto "verse bien", y no necesitamos 
+saber qué sofisticado software de terminal o ssh tiene: un simple cortar 
+y pegar basado en texto directamente en el correo o ticket es lo mejor con
+lo que podemos trabajar.
+-----------------------------------
+
+Nuevo problema, nuevo correo electrónico
+
+No envíe solicitudes de soporte respondiendo a problemas no relacionados. 
+Cada problema o ticket tiene un número y este es el número que ve en la 
+línea de asunto. Responder a problemas no relacionados significa que su 
+correo electrónico se archiva en el hilo equivocado y corre el riesgo de
+pasarlo por alto.
+---------------------------------------
+
+El problema XY
+
+Este es un problema clásico. Lea http://xyproblem.info. A menudo conocemos 
+la solución, pero a veces no conocemos el problema.
+
+En resumen (citando de http://xyproblem.info):
+
+    * El usuario quiere hacer X.
+    
+    * El usuario no sabe cómo hacer X, pero cree que puede encontrar una 
+    solución si logra hacer Y.
+    
+    * El usuario tampoco sabe cómo hacer Y.
+    
+    * El usuario pide ayuda con Y.
+    
+    * Otros intentan ayudar al usuario con Y, pero están confundidos 
+    porque Y parece un problema extraño para resolver.
+    
+    *Después de mucha interacción y pérdida de tiempo, finalmente queda 
+    claro que el usuario realmente quiere ayuda con X, y que Y ni siquiera 
+    era una solución adecuada para X.
+
+Para evitar el problema XY, si tiene problemas con Y pero lo que realmente 
+busca es X, también cuéntenos sobre X. Cuéntenos qué es lo que realmente 
+quiere lograr. Resolver Y puede llevar mucho tiempo. Hemos tenido casos en 
+los que, después de un enorme esfuerzo en Y, nos dimos cuenta de que el 
+usuario quería X y que Y no era en absoluto la mejor manera de lograr X.
+--------------------------------------
+
+Díganos también qué ha funcionado
+
+Muy a menudo recibimos solicitudes del tipo "No puedo hacer que X se ejecute
+en dos nodos". La solicitud no menciona si funcionó en un nodo o en un núcleo 
+o si nunca funcionó y que este fue el primer intento. Quizás el problema ni
+siquiera tenga nada que ver con uno o dos nodos. Para aislar mejor el problema 
+y evitar perder tiempo con muchos correos electrónicos de ida y vuelta, 
+díganos qué ha funcionado realmente hasta ahora. Cuéntenos qué ha intentado 
+para aislar el problema. Esto requiere un poco de esfuerzo por su parte, pero 
+eso es lo que esperamos de usted.
+
+-------------------------
+
+Especifique su entorno
+
+¿Usted o su colega han compilado el código? ¿Qué módulos se cargaron? Si 
+utiliza módulos que no son los predeterminados o que usted mismo definió 
+y no nos informa al respecto, perderemos tiempo al depurar en un entorno 
+diferente.
+-------------------------
+
+Casos simples: Sea específico, incluya comandos y errores
+
+Haga lo que haga, no diga que "X no funcionó". Indique exactamente los 
+comandos que ejecutó, el entorno (consulte más arriba) y los mensajes de 
+error de salida. Los mensajes de error reales son muy importantes: incluya 
+toda la salida, es fácil copiarla y pegarla (solo texto).
+
+Cuanto mejor describa el problema, menos tendremos que adivinar y preguntar.
+
+A veces, basta con ver el mensaje de error real para dar una respuesta 
+útil. Para todos los casos, excepto los más simples, deberá hacer que el 
+problema sea reproducible, lo que siempre debe intentar de todos modos. 
+Consulte los siguientes puntos.
+-------------------------
+
+Casos complejos: Cree un ejemplo que reproduzca el problema
+
+Cree un ejemplo que, idealmente, podamos copiar, pegar y ejecutar para 
+demostrar el problema. De lo contrario, consumiría mucho tiempo si el 
+equipo de soporte necesita escribir archivos de entrada y ejecutar scripts 
+en función de su descripción posiblemente incompleta. Consulte también el
+siguiente punto. Ponga este ejemplo a nuestra disposición. No buscamos ni 
+leemos archivos protegidos contra lectura sin su permiso.
+-------------------------
+
+Haga que el ejemplo sea lo más pequeño y rápido posible
+
+Ejecuta un cálculo que falla después de ejecutarse durante una semana. 
+Tiene la tentación de escribir al soporte de inmediato con este ejemplo, 
+pero no es una buena idea. Antes de enviar una solicitud de soporte con 
+este ejemplo, primero intente reducirla. Es posible y probable que la falla 
+se pueda reproducir con un ejemplo mucho más pequeño (tamaño de sistema o 
+cuadrícula o conjunto de bases más pequeños). Es mucho más fácil programar 
+y depurar un problema que falla después de unos segundos en comparación con 
+una ejecución que falla después de horas. Por supuesto, esto requiere un 
+poco de esfuerzo de su parte, pero esto es lo que esperamos de usted para 
+crear una solicitud de soporte útil. A menudo, cuando se aísla el problema, 
+el problema y la solución se cristalizan incluso antes de escribir la 
+solicitud de soporte.
+-------------------------
+
+(Con el amable permiso del autor de https://hpc-uit.readthedocs.io/en/latest/help/writing-support-requests.html)
