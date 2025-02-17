@@ -28,7 +28,8 @@ productiva de tu trabajo en el clúster.
 
 * [Acceso al clúster](../tutoriales/acceso_al_cluster.md)
 * [Nodos y particiones del clúster](../tutoriales/nodos_y_particiones_del_cluster.md)
-* [Envío y administración de trabajos (scripts)](../tutoriales/envio_y_administracion_de_trabajos.md) 
+* [Envío y administración de trabajos (scripts)](../tutoriales/envio_y_administracion_de_trabajos.md)
+* [Consejos para pedir ayuda](../tutoriales/consejos_ayuda.md) 
 
 
 ## Aplicaciones en el clúster Yoltla
