@@ -13,6 +13,7 @@
     - [Multiplexor de terminales (tmux)](./tutoriales/multiplexor_de_terminales.md)
     - [htop](./tutoriales/htop.md)
     - [Transferencia y respaldo de información](./tutoriales/transferencia_y_respaldo_de_informacion.md)
+    - [Job Aray](./tutoriales/job_array.md)
     - [Consejos para pedir ayuda](./tutoriales/consejos_ayuda.md)
 - [Preguntas frecuentes](./preguntas_frecuentes/preguntas_frecuentes.md)
 - [Aplicaciones](./aplicaciones/aplicaciones.md)
