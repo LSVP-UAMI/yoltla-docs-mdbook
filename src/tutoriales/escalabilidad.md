@@ -29,8 +29,8 @@ Esto significa que llega un punto en el que agregar más recursos no
 mejora el tiempo de ejecución.
 
 En SLURM, esto afecta directamente a la eficiencia de los *Job Arrays*, 
-ya que si cada tarea dentro del arreglo tiene una alta dependencia de E/
-S o comunicación, el rendimiento disminuirá en lugar de mejorar.
+ya que si cada tarea dentro del arreglo tiene una alta dependencia de E/S 
+o comunicación, el rendimiento disminuirá en lugar de mejorar.
 
 
 ## Implementando Job Arrays en SLURM
