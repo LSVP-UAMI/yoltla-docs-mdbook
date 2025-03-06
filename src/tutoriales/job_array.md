@@ -1,272 +1,432 @@
 # Job Array
 
-Job arrays en Slurm permiten enviar y gestionar colecciones de trabajos 
-similares de manera rápida y sencilla. Son especialmente útiles cuando 
-se requiere ejecutar múltiples tareas que comparten la misma configuración 
-inicial (como el tamaño o el límite de tiempo), pero varían ligeramente 
-en parámetros específicos.
+Los Job Arrays en Slurm son una herramienta poderosa que permite enviar y 
+gestionar colecciones de trabajos similares de manera rápida y eficiente. Con 
+los Job Arrays, es posible enviar millones de tareas en milisegundos (sujeto a 
+los límites de tamaño configurados). Todos los trabajos en un Job Array deben 
+tener las mismas opciones iniciales (por ejemplo, tamaño, límite de tiempo, 
+etc.).
 
-**Ventajas de usar Job Arrays:**
+## Enviar un Job Array
 
-* **Eficiencia en la gestión:** Se pueden enviar millones de tareas en 
-milisegundos (dependiendo de la configuración del sistema).
+Para enviar un Job Array, se utiliza el comando `sbatch` con la opción 
+`--array` o `-a.` Esta opción permite especificar los índices del array, que 
+pueden ser valores específicos, un rango de valores, o un rango con un tamaño 
+de paso.
 
-* **Consistencia en configuración:** Todas las tareas comparten las mismas 
-opciones iniciales.
-
-* **Flexibilidad:** Se pueden modificar algunas opciones después de que el 
-trabajo ha comenzado utilizando el comando `scontrol`.
-
-**Ejemplos de uso de `scontrol`:**
-
-    # Actualiza la configuración para todo el job array
-    scontrol update job=101 ...
-
-    # Actualiza la configuración para un trabajo específico dentro del array
-    scontrol update job=101_1 ...
-
-
-## ¿Qué es un Job Array?
-
-Un Job Array es un conjunto de trabajos enviados con el comando `sbatch` 
-utilizando la opción `--array` o `-a`. Todos los trabajos en el array comparten 
-la misma configuración inicial y difieren únicamente en el valor de índice 
-(`SLURM_ARRAY_TASK_ID`). Esto es útil para ejecutar múltiples instancias de 
-un script con diferentes parámetros de entrada.
-
-**Consideraciones importantes:**
-
-* **Solo para trabajos batch:** No se pueden usar en trabajos interactivos.
-
-* **Índices de array:** Se especifican con `--array` o `-a`, y pueden incluir:
-    - Un rango (0-31)
-    - Valores específicos (1,3,5,7)
-    - Un rango con un paso (1-7:2)
-
-* **Valor mínimo:** 0
-* **Valor máximo:** Configurado por el parámetro `MaxArraySize` en Slurm.
-
->**Ejemplo 1: Índices consecutivos**
+><center>
+>
+> **Ejemplos de uso**
+></center>
+>
+>**1. Índices consecutivos**
 >
 >```bash
->   sbatch --array=0-31 -N1 script.sh
+>sbatch --array=0-31 -N1 script.sh
 >```
 >Este comando envía un array con índices de 0 a 31, utilizando un nodo 
 >(`-N1`) por tarea.
 
->**Ejemplo 2: Índices específicos**
+>**2. Índices específicos**
 >
 >```bash
->   sbatch --array=1,3,5,7 -N1 script.sh
+>sbatch --array=1,3,5,7 -N1 script.sh
 >```
 >Este ejemplo ejecuta el script solo para los índices 1, 3, 5, y 7.
 
->**Ejemplo 3: Rango con paso**
+>**3. Rango con paso**
 >
 >```bash        
->    sbatch --array=1-7:2 -N1 script.sh
+>sbatch --array=1-7:2 -N1 script.sh
 >```
 >En este caso, se ejecuta el script para los índices 1, 3, 5, y 7, 
 >con un paso de tamaño 2.
 
->**Ejemplo 4: Limitando tareas simultáneas**
+>**4. Limitando tareas simultáneas**
 >
 >```bash
->    sbatch --array=0-15%4 -N1 script.sh
+>sbatch --array=0-15%4 -N1 script.sh
 >```
 >Esto limita el número de tareas simultáneas a 4, lo que puede ser útil para 
 >controlar el uso de recursos.
 
+## Variables de Entorno en Job Arrays
 
-## Variables de entorno en Job Arrays
+Cuando se ejecuta un Job Array, Slurm establece varias variables de entorno 
+que pueden ser útiles para gestionar y diferenciar las tareas dentro del array:
 
-Cada tarea en un job array tiene acceso a variables de entorno específicas:
+* `SLURM_ARRAY_JOB_ID`: El ID del primer trabajo en el array.
+* `SLURM_ARRAY_TASK_ID`: El índice de la tarea actual dentro del array.
+* `SLURM_ARRAY_TASK_COUNT`: El número total de tareas en el array.
+* `SLURM_ARRAY_TASK_MAX`: El índice más alto en el array.
+* `SLURM_ARRAY_TASK_MIN`: El índice más bajo en el array.
 
-**`SLURM_ARRAY_JOB_ID`**: ID del primer trabajo del array.<br>
-**`SLURM_ARRAY_TASK_ID`**: Índice del array para la tarea actual.<br>
-**`SLURM_ARRAY_TASK_COUNT`**: Número total de tareas en el array.<br>
-**`SLURM_ARRAY_TASK_MAX`**: Valor más alto de índice en el array.<br>
-**`SLURM_ARRAY_TASK_MIN`**: Valor más bajo de índice en el array.
-
-
->**Ejemplo práctico**
+><center>
+>
+>**Ejemplo de variables de entorno**
+></center>
+>
+>Supongamos que enviamos un Job Array con el siguiente comando:
 >```bash
->    #!/bin/bash
->    #SBATCH --job-name=array_example
->    #SBATCH --output=output_%A_%a.out
->    #SBATCH --error=error_%A_%a.err
->    #SBATCH --array=0-4
->
->    echo "Job Array ID: $SLURM_ARRAY_JOB_ID"
->    echo "Task ID: $SLURM_ARRAY_TASK_ID"
->    echo "Total Tasks: $SLURM_ARRAY_TASK_COUNT"
->    echo "Running task with index $SLURM_ARRAY_TASK_ID"
+>sbatch --array=1-3 -N1 scrip.sh
 >```
 >
->Guarda este script como array_example.sh y ejecútalo con:
+>Generará una matriz de trabajos que contiene tres trabajos. Si el comando `sbatch` 
+>responde con:
 >```bash
->    sbatch array_example.sh
+>Submitted batch job 36
 >```
 >
->Esto creará 5 tareas con índices de 0 a 4, y generará archivos de salida y 
->error con el formato `output_<JobID>_<TaskID>.out`.
-
-
-## Accediendo a archivos específicos
-
-En muchos casos, las tareas del job array procesan diferentes archivos de 
-entrada. Utilizando el índice de la tarea, se pueden acceder a diferentes 
-archivos en el script.
-
->**Ejemplo: Procesando Archivos de Datos**
+>Las variables de entorno para cada tarea podrían ser de la siguiente manera:
 >```bash
->    #!/bin/bash
->    #SBATCH --job-name=array_files
->    #SBATCH --output=output_%A_%a.out
->    #SBATCH --array=0-3
+>Tarea 1:
+>    SLURM_JOB_ID=36
+>    SLURM_ARRAY_JOB_ID=36
+>    SLURM_ARRAY_TASK_ID=3
+>    SLURM_ARRAY_TASK_COUNT=3
+>    SLURM_ARRAY_TASK_MAX=3
+>    SLURM_ARRAY_TASK_MIN=1
 >
->    # Asumiendo que tienes archivos data_0.txt, data_1.txt, ..., data_3.txt
->    INPUT_FILE="data_$SLURM_ARRAY_TASK_ID.txt"
+>Tarea 2: 
+>    SLURM_JOB_ID=37
+>    SLURM_ARRAY_JOB_ID=36
+>    SLURM_ARRAY_TASK_ID=1
+>    SLURM_ARRAY_TASK_COUNT=3
+>    SLURM_ARRAY_TASK_MAX=3
+>    SLURM_ARRAY_TASK_MIN=1
 >
->    echo "Procesando archivo: $INPUT_FILE"
->    cat $INPUT_FILE  # Aquí iría el procesamiento real
->```
+>Tarea 3: 
+>    SLURM_JOB_ID=38
+>    SLURM_ARRAY_JOB_ID=36
+>    SLURM_ARRAY_TASK_ID=2
+>    SLURM_ARRAY_TASK_COUNT=3
+>    SLURM_ARRAY_TASK_MAX=3
+>    SLURM_ARRAY_TASK_MIN=1
+>```    
+
+## Nombres de Archivos de Salida
+
+Slurm permite personalizar los nombres de los archivos de salida (*stdout, 
+stderr*) utilizando los siguientes placeholders:
+
+* `%A`: Será reemplazado por el valor de `SLURM_ARRAY_JOB_ID`.
+* `%a`: Será reemplazado por el valor de `SLURM_ARRAY_TASK_ID`.
+
+**Ejemplo de uso**
+```bash
+$ sbatch -o slurm-%A_%a.out --array=1-3 -N1 script.sh
+```
+
+Esto generará archivos de salida con los nombres:
+
+* `slurm-XX_1.out`
+* `slurm-XX_2.out`
+* `slurm-XX_3.out`
+
+Donde *XX* es el *ID* del Job Array.
+
+```admonish note title = "Nota"
+Si se utilizan estas opciones de nombre de archivo sin ser parte de un Job
+Array, entonces `%A` será reemplazado por el `ID` del trabajo actual y 
+`%a` será reemplazado por *4,294,967,294* (equivalente a *0xffffffffe* o 
+*NO_VAL*). 
+```
+
+
+## Cancelar Job Arrays con *scancel*
+
+El comando `scancel` permite cancelar Job Arrays de manera selectiva o completa.
+
+><center>
 >
->Ejecuta el script con:
+>**Ejemplos de uso**
+></center>
+>
+>**1. Cancelar tareas específicas de un Job Array:**
 >```bash
->    sbatch array_files.sh
+>$ scancel 20_[1-3]  # Cancela las tareas 1, 2 y 3 del Job Array 20
+>$ scancel 20_4 20_5 # Cancela las tareas 4 y 5 del Job Array 20
 >```
 >
->Cada tarea procesará un archivo diferente (data_0.txt, data_1.txt, etc.).
-
-
-## Gestión y monitorización de Job Arrays
-
-Ver el estado de un job array.
-```bash
-squeue --job <JobID>
-```
-
-Cancelar todo el array
-```bash
-scancel <JobID>
-```
-
-Cancelar una tarea específica
-```bash
-scancel <JobID>_<TaskID>
-```
-
-Actualizar parámetros en ejecución
-```bash
-scontrol update job=<JobID>_<TaskID> ...
-```
-
-# Gestión de Job Arrays en Slurm
-
-**Introducción**
-
-En Slurm, los Job Arrays permiten enviar y gestionar colecciones de trabajos 
-similares de manera eficiente. Además de facilitar el envío masivo de 
-trabajos, ofrecen opciones flexibles para el manejo de archivos de salida y 
-la administración de tareas en ejecución. Este tutorial cubre las siguientes 
-funcionalidades:
-
-* Nombres de archivos para `stdin`, `stdout` y `stderr` en job arrays.
-* Uso del comando `scancel` para cancelar trabajos en un array.
-* Monitoreo con `squeue` para visualizar el estado de los trabajos.
-
-## Nombres de Archivos en Job Arrays (Formato de Nombres)
-
-Al trabajar con job arrays, se pueden especificar nombres personalizados 
-para los archivos de salida (`stdout`) y error (`stderr`) utilizando los 
-siguientes identificadores:
-
-* `%A`: Se reemplaza por el `SLURM_ARRAY_JOB_ID`, que es el ID del job array.
-
-* `%a`: Se reemplaza por el `SLURM_ARRAY_TASK_ID`, que corresponde al índice 
-de la tarea en el array.
-
-El formato predeterminado para la salida de un job array es:
-```
-slurm-%A_%a.out
-```
-
->**Ejemplo: Definiendo Nombres de Archivos**
->```
->sbatch -o slurm-%A_%a.out --array=1-3 -N1 script.sh
->```
->
->Esto generará los siguientes archivos de salida:
->
->    * slurm-XX_1.out
->    * slurm-XX_2.out
->    * slurm-XX_3.out
->
->Donde `XX` es el ID del job array.
-
-```admonish note title="NOTA"
-Si se utiliza `%A` y `%a` sin estar en un job array:
-
-* `%A` se reemplaza por el Job ID.
-* `%a` se reemplaza por `4294967294` (`0xfffffffe` o `NO_VAL`).
-```
-
-
->**Ejemplo: Script con Nombres de Archivos Personalizados**
+>**2. Cancelar todas las tareas de un Job Array:**
 >```bash
->#!/bin/bash
->#SBATCH --job-name=array_example
->#SBATCH --output=output_%A_%a.out
->#SBATCH --error=error_%A_%a.err
->#SBATCH --array=0-3
->
->echo "Job Array ID: $SLURM_ARRAY_JOB_ID"
->echo "Task ID: $SLURM_ARRAY_TASK_ID"
->echo "Procesando tarea con índice $SLURM_ARRAY_TASK_ID"
+>$ scancel 20  # Cancela todas las tareas del Job Array 20
 >```
 >
->Ejecuta el script con:
+>**3. Cancelar la tarea actual (útil en scripts):**
 >```bash
->sbatch array_example.sh
+>if [[ -z $SLURM_ARRAY_JOB_ID ]]; then
+>    scancel $SLURM_JOB_ID
+>else
+>    scancel ${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}
+>fi
+>```
+
+
+## Monitorear Job Arrays con *squeue*
+
+El comando `squeue` permite monitorear los Job Arrays. Por defecto, muestra 
+todas las tareas de un Job Array en una sola línea, pero también se puede 
+mostrar una tarea por línea.
+
+><center>
+>
+>**Ejemplos de Uso**
+></center>
+>
+>**1. Mostrar todas las tareas de un Job Array en una línea:**
+>```bash
+>$ squeue
+>JOBID     PARTITION  NAME  USER  ST  TIME  NODES NODELIST(REASON)
+>1080_[5-1024]  debug   tmp   mac  PD  0:00      1 (Resources)
+>1080_1         debug   tmp   mac   R  0:17      1 tux0
+>1080_2         debug   tmp   mac   R  0:16      1 tux1
+>1080_3         debug   tmp   mac   R  0:03      1 tux2
+>1080_4         debug   tmp   mac   R  0:03      1 tux3
 >```
 >
->Esto creará archivos de salida y error con el formato:
+>**2. Mostrar una tarea por línea:**
+>```bash
+>$ squeue -r
+>JOBID PARTITION  NAME  USER  ST  TIME  NODES NODELIST(REASON)
+>1082_3     debug   tmp   mac  PD  0:00      1 (Resources)
+>1082_4     debug   tmp   mac  PD  0:00      1 (Priority)
+>1080     debug   tmp   mac   R  0:17      1 tux0
+>1081     debug   tmp   mac   R  0:16      1 tux1
+>1082_1     debug   tmp   mac   R  0:03      1 tux2
+>1082_2     debug   tmp   mac   R  0:03      1 tux3
+>```
 >
->* `output_<JobID>_<TaskID>.out`
->* `error_<JobID>_<TaskID>.err`
+>**3. Filtrar por tareas específicas:**
+>```bash
+>$ squeue -j 1234_2,1234_3
+>```
+>
+>Se muestran solo los elementos 2 y 3 del job array 1234.
+>
+>```
+>JOBID   PARTITION  NAME  USER   ST  TIME  NODES NODELIST(REASON)
+>1234_2  compute    jobA  user1  R   00:02  1     node01
+>1234_3  compute    jobA  user1  PD  00:00  1     (Resources)
+>```
+>
+>**4. Mostrar información resumida de trabajos**
+>```
+>$ squeue -s
+>```
+> 
+>Este formato es útil para obtener una visión rápida del estado de 
+>los trabajos por usuario.
+>```
+>JOBS       PENDING RUNNING SUSPENDED
+>user1          12       8        1
+>user2           5       2        0
+>```
 
-## Cancelando Job Arrays con scancel.
 
-El comando `scancel` permite cancelar:
+## Comando *scontrol* con Job Arrays
 
-* Todo el job array.
-* Tareas específicas en el array.
-* Tareas utilizando expresiones regulares.
+El comando `scontrol` permite gestionar y modificar trabajos en Slurm. 
+Cuando se trabaja con Job Arrays, `scontrol` permite mostrar y actualizar 
+información específica de los arrays, así como realizar operaciones 
+como suspender, reanudar o modificar tareas individuales.
 
-**Cancelar Todo el Job Array**
+### Mostrar Información de Job Arrays
+
+Al usar `scontrol show job`, se muestran dos nuevos campos relacionados con 
+Job Arrays:
+
+* `JobID`: Identificador único del trabajo.
+* `ArrayJobID`: El JobID del primer elemento del Job Array.
+* `ArrayTaskID`: El índice de la tarea dentro del array (puede ser un número 
+único o un rango).
+
+Estos campos solo se muestran si el trabajo es parte de un Job Array.
+
+**Ejemplo**
 ```bash
-scancel <JobID>
+$ scontrol show job 21845_2
+
+JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+21845_2    canopo     array    pepe  R   17:03   1    node-X
 ```
 
-**Cancelar Tareas Específicas**
-```bash
-# Cancela las tareas con índices 1 a 3 del array con Job ID 20
-scancel 20_[1-3]
+Esto mostrará detalles específicos de la tarea 2 del Job Array 21845.
 
-# Cancela las tareas con índices 4 y 5 del array con Job ID 20
-scancel 20_4 20_5
-```
 
-**Cancelar desde Dentro de un Script**
+### Modificar Trabajos en un Job Array
 
-Si se desea cancelar el trabajo actual desde un script, se puede usar la 
-siguiente lógica:
-```bash
-if [[ -z $SLURM_ARRAY_JOB_ID ]]; then
-scancel $SLURM_JOB_ID
-else
-scancel ${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}
-fi
-```
-Este enfoque verifica si se está ejecutando dentro de un job array o no.
+Se puede modificar todos los elementos de un Job Array especificando solo el 
+`ArrayJobID`, o modificar tareas individuales usando `ArrayJobID_ArrayTaskID`.
+
+><center>
+>
+>**Ejemplos de uso**
+></center>
+>
+>**1. Cambiar el nombre de una tarea específica:**
+>```bash
+>$ squeue
+> JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+> 21845_1    canopo    array     pepe  R   17:03   1    node-X
+> 21845_2    canopo    array     pepe  R   17:03   1    node-X
+>
+>$ scontrol update JobID=21845_2 name=ejemplo
+>$ squeue
+>
+> JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+> 21845_1    canopo    array     pepe  R   17:03   1    node-X
+> 21845_2    canopo   ejemplo    pepe  R   17:03   1    node-X
+>```
+>
+>**2. Suspender las tareas de un Job Array:**
+>```bash
+>$ scontrol suspend 21845
+>$ squeue
+> JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+> 21845_1    canopo    array     pepe  S   17:03   1    node-X
+> 21845_2    canopo   ejemplo    pepe  S   17:03   1    node-X
+> 21845_3    canopo    array     pepe  S   17:03   1    node-X
+>```
+>
+>**3. Reanudar las tareas de un Job Array:**
+>```bash
+>$ scontrol resume 21845
+>$ squeue
+> JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+> 21845_1    canopo    array     pepe  R   17:03   1    node-X
+> 21845_2    canopo   ejemplo    pepe  R   17:03   1    node-X
+> 21845_3    canopo    array     pepe  R   17:03   1    node-X
+>```
+>
+>**4. Suspender una tarea específica de un Job Array:**
+>```bash
+>$ scontrol suspend 21845_3
+>$ squeue
+> JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+> 21845_1    canopo    array     pepe  R   17:03   1    node-X
+> 21845_2    canopo   ejemplo    pepe  R   17:03   1    node-X
+> 21845_3    canopo    array     pepe  S   17:03   1    node-X
+>```
+>
+>**5. Reanudar una tarea en específico de un Job Array:**
+>```bash
+>$ scontrol resume 21845_3
+>$ squeue
+> JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+> 21845_1    canopo    array     pepe  R   17:03   1    node-X
+> 21845_2    canopo   ejemplo    pepe  R   17:03   1    node-X
+> 21845_3    canopo    array     pepe  R   17:03   1    node-X
+>```
+
+## Dependencias entre Job Arrays
+
+Slurm permite definir dependencias entre trabajos, incluyendo Job Arrays. Las 
+dependencias se pueden establecer para esperar a que un Job Array completo o 
+tareas específicas finalicen antes de ejecutar otro trabajo.
+
+**Tipos de Dependencias**
+
+* **after:** El trabajo se ejecuta después de que todas las tareas del Job Array 
+hayan comenzado.
+
+* **afterany:** El trabajo se ejecuta después de que todas las tareas del Job 
+Array hayan finalizado.
+
+* **aftercorr:** El trabajo se ejecuta después de que la tarea correspondiente en 
+el Job Array haya finalizado exitosamente.
+
+* **afterok:** El trabajo se ejecuta después de que todas las tareas del Job Array 
+hayan finalizado exitosamente.
+
+* **afternotok:** El trabajo se ejecuta después de que todas las tareas del Job 
+Array hayan finalizado, y al menos una haya fallado.
+
+><center>
+>
+>**Ejemplos de uso**
+></center>
+>
+>**1. Esperar a que una tarea específica finalice:**
+>```bash
+>$ sbatch --depend=after:123_4 my.job
+>```
+>
+>**2. Esperar a que varias tareas específicas finalicen exitosamente:**
+>```bash
+>$ sbatch --depend=afterok:123_4:123_8 my.job2
+>```
+>
+>**3. Esperar a que todo el Job Array finalice:**
+>```bash
+>$ sbatch --depend=afterany:123 my.job
+>```
+>
+>**4. Esperar a que todo el Job Array finalice exitosamente:**
+>```bash
+>$ sbatch --depend=afterok:123 my.job
+>```
+>
+>**5. Esperar a que todo el Job Array finalice y al menos una tarea falle:**
+>```bash
+>$ sbatch --depend=afternotok:123 my.job
+>```
+
+## Otros Comandos y Consideraciones
+
+Algunos comandos de Slurm no reconocen Job Arrays directamente y requieren 
+el uso de Job IDs únicos para cada tarea. Estos comandos incluyen:
+
+* **sbcast:** Distribuye archivos a los nodos de cómputo antes de ejecutar 
+un trabajo.
+* **sprio:** Muestra la prioridad de los trabajos en la cola de Slurm, 
+desglosando los factores que afectan la prioridad.
+* **sreport:** Genera informes sobre el uso de recursos en Slurm, como 
+consumo de CPU, memoria y trabajos ejecutados.
+* **sshare:** Muestra información sobre la asignación y uso de recursos en 
+base a asociaciones y cuentas dentro de Slurm.
+* **sstat:** Proporciona estadísticas en tiempo real sobre los trabajos en 
+ejecución, como uso de CPU, memoria y estado de las tareas.
+
+Por otro lado, los siguientes comandos han sido modificados para soportar Job 
+Arrays:
+
+* **sacct:** Permite especificar Job IDs o elementos de Job Arrays.
+* **sattach:** Permite adjuntarse a tareas específicas de un Job Array.
+* **strigger:** Permite definir triggers para Job Arrays.
+* **sview:** Muestra los campos `ArrayJobId` y `ArrayTaskId` (o "N/A" si no es un Job 
+Array).
+
+
+## Administración del Sistema
+
+### Configuración de Job Arrays
+
+Slurm introduce un parámetro de configuración llamado `MaxArraySize`, que 
+controla el tamaño máximo de un Job Array.
+
+* El índice mínimo que un usuario puede especificar es 0.
+* El índice máximo es `MaxArraySize` - 1.
+* El valor predeterminado de `MaxArraySize` es 1001.
+* El valor máximo soportado es 4000001.
+
+Es importante tener en cuenta este parámetro, ya que los Job Arrays permiten a 
+los usuarios enviar grandes cantidades de trabajos rápidamente.
+
+### Optimización del Planificador
+
+El plugin `sched/backfill` ha sido modificado para mejorar el rendimiento con 
+Job Arrays. Si un elemento del Job Array no es ejecutable o afecta la 
+planificación de otros trabajos, los elementos restantes se omiten rápidamente.
+
+### Escalabilidad
+
+Slurm crea un único registro de trabajo cuando se envía un Job Array. Los 
+registros adicionales se crean solo cuando es necesario, generalmente cuando 
+una tarea comienza a ejecutarse. Esto proporciona un mecanismo escalable para 
+gestionar grandes cantidades de trabajos.
+
+
+<!-- Paguina por revisar slurm
+https://documentation-its-umich-edu.translate.goog/node/4986?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+-->
