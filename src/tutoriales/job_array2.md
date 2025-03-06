@@ -6,13 +6,10 @@ los Job Arrays, es posible enviar millones de tareas en milisegundos (sujeto a
 los límites de tamaño configurados). Todos los trabajos en un Job Array deben 
 tener las mismas opciones iniciales (por ejemplo, tamaño, límite de tiempo, 
 etc.), aunque es posible modificar algunas de estas opciones después de que el 
-trabajo haya comenzado su ejecución utilizando el comando `scontrol.`
+trabajo haya comenzado su ejecución utilizando el comando `scontrol` que 
+especifica el `JobID` de la matriz o `ArrayJobID` individual, esta opción se verá
+más adelante. 
 
-<!--
-En este tutorial, exploraremos cómo utilizar Job Arrays en Slurm, incluyendo 
-cómo enviar trabajos, gestionar variables de entorno, y utilizar comandos como 
-`scancel` y `squeue` para gestionar y monitorear los Job Arrays.
--->
 ## Enviar un Job Array
 
 Para enviar un Job Array, se utiliza el comando `sbatch` con la opción 
@@ -69,20 +66,21 @@ que pueden ser útiles para gestionar y diferenciar las tareas dentro del array:
 
 ><center>
 >
->**Ejemplo de Variables de Entorno**
+>**Ejemplo de variables de entorno**
 ></center>
 >
 >Supongamos que enviamos un Job Array con el siguiente comando:
 >```bash
->$ sbatch --array=1-3 -N1 scrip.sh
+>sbatch --array=1-3 -N1 scrip.sh
 >```
 >
->Si Slurm responde con:
+>Generará una matriz de trabajos que contiene tres trabajos. Si el comando `sbatch` 
+>responde con:
 >```bash
 >Submitted batch job 36
 >```
 >
->Las variables de entorno para cada tarea serán:
+>Las variables de entorno para cada tarea podrían ser de la siguiente manera:
 >```bash
 >Tarea 1:
 >    SLURM_JOB_ID=36
@@ -111,22 +109,31 @@ que pueden ser útiles para gestionar y diferenciar las tareas dentro del array:
 
 ## Nombres de Archivos de Salida
 
-Slurm permite personalizar los nombres de los archivos de salida (stdout, 
-stderr) utilizando los siguientes placeholders:
+Slurm permite personalizar los nombres de los archivos de salida (*stdout, 
+stderr*) utilizando los siguientes placeholders:
 
 * `%A`: Será reemplazado por el valor de `SLURM_ARRAY_JOB_ID`.
 * `%a`: Será reemplazado por el valor de `SLURM_ARRAY_TASK_ID`.
 
-**Ejemplo de Uso**
+**Ejemplo de uso**
 ```bash
 $ sbatch -o slurm-%A_%a.out --array=1-3 -N1 script.sh
 ```
 
 Esto generará archivos de salida con los nombres:
 
-* `slurm-36_1.out`
-* `slurm-36_2.out`
-* `slurm-36_3.out`
+* `slurm-XX_1.out`
+* `slurm-XX_2.out`
+* `slurm-XX_3.out`
+
+Donde *XX* es el *ID* del Job Array.
+
+```admonish note title = "Nota"
+Si se utilizan estas opciones de nombre de archivo sin ser parte de un Job
+Array, entonces `%A` será reemplazado por el `ID` del trabajo actual y 
+`%a` será reemplazado por *4,294,967,294* (equivalente a *0xffffffffe* o 
+*NO_VAL*). 
+```
 
 
 ## Cancelar Job Arrays con scancel
@@ -197,8 +204,28 @@ mostrar una tarea por línea.
 >```bash
 >$ squeue -j 1234_2,1234_3
 >```
+>
+>Se muestran solo los elementos 2 y 3 del job array 1234.
+>
+>```
+>JOBID   PARTITION  NAME  USER   ST  TIME  NODES NODELIST(REASON)
+>1234_2  compute    jobA  user1  R   00:02  1     node01
+>1234_3  compute    jobA  user1  PD  00:00  1     (Resources)
+>```
+>
+>**4. Mostrar información resumida de trabajos**
+>```
+>$ squeue -s
+>```
+> 
+>Este formato es útil para obtener una visión rápida del estado de 
+>los trabajos por usuario.
+>```
+>JOBS       PENDING RUNNING SUSPENDED
+>user1          12       8        1
+>user2           5       2        0
+>```
 
-# Falta agregar las opciones de formato -j, -s y las opciones %F, %k
 
 ## Comando scontrol con Job Arrays
 
